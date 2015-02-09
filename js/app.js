@@ -6,3 +6,9 @@ $(function() {
 	var exampleView = new ExampleView($("#exampleView"));
 
 });
+
+
+// initialise selection tooggle
+$(document).ready(function() {
+    $('select').material_select();
+ });
