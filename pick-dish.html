@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
+
+	<!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+
+  </head>
+  <body>
+	<div class="container">
+		<div class="row card-panel">
+			<div class="col s12 m7 l6">
+				<h1>Homelette</h1>
+			</div>
+			<div class="col s12 m5 l6">
+				<p class="home-description">From the best chefs in the world, directly to your kitchen</p>
+			</div>
+		</div>
+
+	<div class="row">
+		<div class="col s12 m3 l3">
+			<h3 class="small-heading">My dinner</h3>
+			<table class="responsive-table">
+		        <thead>
+		          <tr>
+		              <th data-field="name">Dish name</th>
+		              <th data-field="cost">Cost</th>
+		          </tr>
+		        </thead>
+
+		        <tbody>
+		          <tr>
+		            <td>Pending</td>
+		            <td>0.00</td>
+		          </tr>
+		          <tr>
+		            <td></td>
+		            <td>SEK 0.00</td>
+		          </tr>
+		        </tbody>
+      		</table>
+      	<a class="btn disabled">Confirm dinner</a>
+		</div>
+		<div class="col s12 m9 l9">
+			<div class="row amber lighten-3">
+				<div class="col s12 m12 l12">
+					<h3 class="small-heading">Select dish</h3>
+				</div>
+				<div class="col s12 m6 l6">
+					<form>
+				        <div class="input-field col s12">
+				          <input id="search" type="text" required>
+				          <label for="search"><i class="mdi-action-search"></i> Enter keywords</label>
+				        </div>
+      				</form>
+				</div>
+				<div class="col s12 m6 l6">
+					<label>Dinner course</label>
+					<select>
+					    <option value="" selected>Choose your option</option>
+					    <option value="1">Entrés</option>
+					    <option value="2">Salads</option>
+					    <option value="3">Main course</option>
+					    <option value="4">Fruit</option>
+					    <option value="5">Desserts</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/pasta.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Pasta</a>
+			            </div>
+			            <div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/pizza.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Pizza</a>
+			            </div>
+			            <div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/mushrooms.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Mushrooms</a>
+			              
+			            </div>
+			            <div class="card-action">
+			            	<p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/fiorentina.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Fiorentina</a>
+			            </div>
+						<div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>	
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/cod.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Boiled cod</a>
+			            </div>
+			            <div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>	
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/soup.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Soup</a>
+			            </div>
+			            <div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>	
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+
+    <!-- Import materialize.js -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>
