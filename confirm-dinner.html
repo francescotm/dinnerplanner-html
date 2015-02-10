@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
+
+	<!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+
+  </head>
+  <body>
+	<div class="container">
+		<div class="row card-panel">
+			<div class="col s12 m7 l6">
+				<h1>Homelette</h1>
+			</div>
+			<div class="col s12 m5 l6">
+				<p class="home-description">From the best chefs in the world, directly to your kitchen</p>
+			</div>
+		</div>
+
+	<div class="row amber lighten-3">
+		<div class="col s12 m4 l4">
+			<h3 class="small-heading">My Dinner: 4 people</h3>
+		</div>
+		<div class="col s12 m4 l4 offset-m4 offset-l4">
+			<p><a class="waves-effect waves-light btn"><i class="mdi-navigation-arrow-back left"></i>Go back and edit dinner</a></p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s12 m4 l3">
+			<div class="card">
+			    <div class="card-image">
+			        <img class="responsive-img" src="images/pasta.jpg">
+			        <span class="card-title"></span>
+			    </div>
+			    <div class="card-content">
+			        <a href="#">Pasta</a>
+			    </div>
+			    <div class="card-action">
+			        <p>SEK 77.00</p>
+			    </div>
+			</div>
+		</div>
+		<div class="col s12 m4 l3">
+			<div class="card">
+			    <div class="card-image">
+			        <img class="responsive-img" src="images/fiorentina.jpg">
+			        <span class="card-title"></span>
+			    </div>
+			    <div class="card-content">
+			        <a href="#">Fiorentina</a>
+			    </div>
+			    <div class="card-action">
+			        <p>SEK 180.20</p>
+			    </div>
+			</div>
+		</div>
+		<div class="col s12 m4 l3">
+			<div class="card">
+			    <div class="card-image">
+			        <img class="responsive-img" src="images/cod.jpg">
+			        <span class="card-title"></span>
+			    </div>
+			    <div class="card-content">
+			        <a href="#">Boiled cod</a>
+			    </div>
+			    <div class="card-action">
+			        <p>SEK 95.30</p>
+			    </div>
+			</div>
+		</div>
+		<div class="col s12 m4 l3">
+			<h3 class="small-heading">
+				Total: 312.40 SEK
+			</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s12 m6 l6 offset-m4 offset-l4">
+			<a class="waves-effect waves-light btn-large"><i class="mdi-action-print right"></i>Print full recipe</a>
+		</div>
+	</div>
+
+	</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+
+    <!-- Import materialize.js -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>
