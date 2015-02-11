@@ -12,7 +12,8 @@ $(function() {
 
 	console.log("numberOfGuests: " + guests);
 	
-
+	
+	model.getAllIngredients();
 });
 
 
