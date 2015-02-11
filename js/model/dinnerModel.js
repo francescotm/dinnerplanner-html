@@ -67,6 +67,7 @@ var DinnerModel = function() {
 		for(key in dishes) {
 			if (dishes[key].id == id) {
 				for (p in dishes[key].ingredients) {
+
 					ingredients.push(dishes[key].ingredients[p]);
 				}
 				// console.log("single dish" + JSON.stringify(ingredients));
@@ -77,7 +78,22 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
+		var shopList = this.getAllIngredients();
+		var total = 0;
+		var n = this.getNumberOfGuests();
+		console.log("n=" + n);
+		var price = 0;
+		for(key in shopList){
+			for (dish in shopList[key]){
+				for(ingredient in shopList[key][dish]){
+					price = parseFloat(shopList[key][dish].price);
+					
+					}
+				console.log("price/ingredient: " + JSON.stringify(shopList[key][dish].price));
+				total += price * n;
+			}
+		}
+		return total;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -112,7 +128,6 @@ var DinnerModel = function() {
 	  	return dish.type == type && found;
 	  });	
 	}
-
 
 
 // test fullMenu

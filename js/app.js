@@ -7,17 +7,19 @@ $(function() {
 
 	//random code
 
-	var num = model.setNumberOfGuests(numberOfGuests);
+	var num = model.setNumberOfGuests(3);
 	var guests = model.getNumberOfGuests();
 
-	console.log("numberOfGuests: " + guests);
+	console.log("numberOfGuests: " +JSON.stringify(guests));
 	
 	var dishingredient = model.getDishIngredients(1);
 	var ciao = model.getAllIngredients();
 	var menu = model.getFullMenu();
-	console.log("full menu " + JSON.stringify(menu));
+	console.log("all intredients " + JSON.stringify(ciao));
 	var type = model.getSelectedDish('starter');
 	console.log("get selected dish " + JSON.stringify(type));
+	var price = model.getTotalMenuPrice();
+	console.log("price= " + price);
 
 });
 
