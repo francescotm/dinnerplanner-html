@@ -1,3 +1,9 @@
+'use strict';
+
+/*main module definition*/
+var dinnerPlanner = angular.module("dinnerPlanner", []);
+
+
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
