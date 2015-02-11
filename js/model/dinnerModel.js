@@ -18,7 +18,6 @@ var DinnerModel = function() {
 	}
 
 	//Returns the dish that is on the menu for selected type 
-
 	this.getSelectedDish = function(type) {
 		for(key in fullMenu){
 			if(fullMenu[key].type == type) {
@@ -29,7 +28,9 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 2
+		for(key in fullMenu){
+			this.getDish(fullMenu[key].id); // check if it works later
+		}
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
