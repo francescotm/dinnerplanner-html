@@ -18,11 +18,11 @@ var DinnerModel = function() {
 	}
 
 	//Returns the dish that is on the menu for selected type 
+
 	this.getSelectedDish = function(type) {
-	
 		for(key in fullMenu){
 			if(fullMenu[key].type == type) {
-				 this.fullMenu[key].id;
+				this.getDish(fullMenu[key].id); // check if it works later
 			}
 		}
 	}
