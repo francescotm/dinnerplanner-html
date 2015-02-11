@@ -41,11 +41,11 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		var allDishes = [];
-		for(key in fullMenu){
-			allDishes.push(this.getDish(fullMenu[key].id));
-		}
-		return allDishes;
+		// var allDishes = [];
+		// for(key in fullMenu){
+		// 	allDishes.push(this.getDish(fullMenu[key].id));
+		// }
+		return fullMenu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu
@@ -54,7 +54,7 @@ var DinnerModel = function() {
 		var menu = this.getFullMenu();
 		for(key in menu){
 			for(p in dishes){
-				if(dishes[p].id === menu[key].id){
+				if(dishes[p].id == menu[key].id){
 					console.log("p: " + p);
 					console.log("key: " + key);
 					console.log("dishes pid: " + dishes[p].id);
@@ -105,7 +105,19 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+		var dish = this.getDish(id);
+		if(fullMenu){
+		for(key in fullMenu){
+			if(dish.type == fullMenu[key].type){
+				this.removeDishFromMenu(fullMenu[key].id)
+				return fullMenu.push(dish);
+			}else {
+				return fullMenu.push(dish);
+			}
+		}
+		}
+		return fullMenu.push(dish);
+		
 	}
 
 	//Removes dish from menu
@@ -228,7 +240,7 @@ var DinnerModel = function() {
 		},{
 		'id':100,
 		'name':'Meat balls',
-		'type':'main dish',
+		'type':'main-dish',
 		'image':'meatballs.jpg',
 		'description':"Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.",
 		'ingredients':[{ 
@@ -290,7 +302,7 @@ var DinnerModel = function() {
 		},{
 		'id':101,
 		'name':'MD 2',
-		'type':'main dish',
+		'type':'main-dish',
 		'image':'bakedbrie.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
@@ -312,7 +324,7 @@ var DinnerModel = function() {
 		},{
 		'id':102,
 		'name':'MD 3',
-		'type':'main dish',
+		'type':'main-dish',
 		'image':'meatballs.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
@@ -332,9 +344,9 @@ var DinnerModel = function() {
 			'price':4
 			}]
 		},{
-		'id':102,
+		'id':103,
 		'name':'MD 4',
-		'type':'main dish',
+		'type':'main-dish',
 		'image':'meatballs.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
