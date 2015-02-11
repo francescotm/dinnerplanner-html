@@ -17,20 +17,35 @@ var DinnerModel = function() {
 		return this.numberOfGuests;
 	}
 
-	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
-		for(key in fullMenu){
-			if(fullMenu[key].type == type) {
-				this.getDish(fullMenu[key].id); // check if it works later
+	//function that returns a dish of specific ID
+	this.getDish = function (id) {
+	  for(key in dishes){
+			if(dishes[key].id == id) {
+				return dishes[key];
 			}
 		}
 	}
 
+	//Returns the dish that is on the menu for selected type 
+	this.getSelectedDish = function(type) {
+		var selectedDish = [];
+		for(key in fullMenu){
+			if(fullMenu[key].type == type) {
+				selectedDish = this.getDish(fullMenu[key].id);
+				return selectedDish;
+			}
+
+		}
+
+	}
+
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
+		var allDishes = [];
 		for(key in fullMenu){
-			this.getDish(fullMenu[key].id); // check if it works later
+			allDishes.push(this.getDish(fullMenu[key].id));
 		}
+		return allDishes;
 	}
 
 	//Returns all ingredients for all the dishes on the menu
@@ -42,7 +57,7 @@ var DinnerModel = function() {
 					allIngredients.push(this.getDishIngredients(fullMenu[key].id));
 				}
 		}
-		console.log("all dishes" + JSON.stringify(allIngredients));
+		// console.log("all dishes" + JSON.stringify(allIngredients));
 		return allIngredients;
 	}
 
@@ -54,7 +69,7 @@ var DinnerModel = function() {
 				for (p in dishes[key].ingredients) {
 					ingredients.push(dishes[key].ingredients[p]);
 				}
-				console.log("single dish" + JSON.stringify(ingredients));
+				// console.log("single dish" + JSON.stringify(ingredients));
 				return ingredients;
 			}
 		}
@@ -98,14 +113,7 @@ var DinnerModel = function() {
 	  });	
 	}
 
-	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-	  for(key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
-	}
+
 
 // test fullMenu
 var fullMenu = [{

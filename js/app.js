@@ -14,6 +14,10 @@ $(function() {
 	
 	var dishingredient = model.getDishIngredients(1);
 	var ciao = model.getAllIngredients();
+	var menu = model.getFullMenu();
+	console.log("full menu " + JSON.stringify(menu));
+	var type = model.getSelectedDish('starter');
+	console.log("get selected dish " + JSON.stringify(type));
 
 });
 
