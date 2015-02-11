@@ -5,10 +5,18 @@ $(function() {
 	//And create the needed controllers and views
 	var exampleView = new ExampleView($("#exampleView"));
 
+	//random code
+
+	var num = model.setNumberOfGuests(numberOfGuests);
+	var guests = model.getNumberOfGuests();
+
+	console.log("numberOfGuests: " + guests);
+	
+
 });
 
 
-// initialise selection tooggle
-$(document).ready(function() {
-    $('select').material_select();
- });
+// // initialise selection tooggle
+// $(document).ready(function() {
+//     $('select').material_select();
+//  });

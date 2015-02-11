@@ -19,7 +19,12 @@ var DinnerModel = function() {
 
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
-		//TODO Lab 2
+	
+		for(key in fullMenu){
+			if(fullMenu[key].type == type) {
+				 this.fullMenu[key].id;
+			}
+		}
 	}
 
 	//Returns all the dishes on the menu.
