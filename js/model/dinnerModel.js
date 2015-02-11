@@ -51,11 +51,17 @@ var DinnerModel = function() {
 	//Returns all ingredients for all the dishes on the menu
 	this.getAllIngredients = function() {
 		var allIngredients = [];
-		for(key in fullMenu){
-			for(p in dishes)
-				if(dishes[p].id == fullMenu[key].id){
-					allIngredients.push(this.getDishIngredients(fullMenu[key].id));
+		var menu = this.getFullMenu();
+		for(key in menu){
+			for(p in dishes){
+				if(dishes[p].id === menu[key].id){
+					console.log("p: " + p);
+					console.log("key: " + key);
+					console.log("dishes pid: " + dishes[p].id);
+					console.log("menu key pid: " + menu[key].id);
+					allIngredients.push(this.getDishIngredients(menu[key].id));
 				}
+			}
 		}
 		// console.log("all dishes" + JSON.stringify(allIngredients));
 		return allIngredients;
@@ -104,7 +110,10 @@ var DinnerModel = function() {
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		for(dish in fullMenu)
+			if(fullMenu[dish].id === id){
+				fullMenu.splice(dish, 1);
+			}
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -130,19 +139,7 @@ var DinnerModel = function() {
 	}
 
 
-// test fullMenu
-var fullMenu = [{
-	'id':1,
-	'type':'starter'},
-	{
-	'id':2,
-	'type':'main dish'
-	}, 
-	{
-	'id':4,
-	'type':'dessert'
-	}
-];
+
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
