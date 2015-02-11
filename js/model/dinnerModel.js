@@ -35,11 +35,11 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		var allIngredients = [];
+		var allIngredients = ["empty"];
 		for(key in fullMenu){
 			for(p in dishes)
 				if(dishes[p].id == fullMenu[key].id){
-					allIngredients.concat(dishes[p].ingredients);
+					allIngredients.push(dishes[p].ingredients);
 				}
 		}
 		return allIngredients;
@@ -92,6 +92,19 @@ var DinnerModel = function() {
 		}
 	}
 
+// test fullMenu
+var fullMenu = [{
+	'id':1,
+	'type':'starter'},
+	{
+	'id':2,
+	'type':'main dish'
+	}, 
+	{
+	'id':4,
+	'type':'dessert'
+	}
+];
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

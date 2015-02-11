@@ -13,7 +13,9 @@ $(function() {
 	console.log("numberOfGuests: " + guests);
 	
 	
-	model.getAllIngredients();
+	var ciao = model.getAllIngredients();
+	console.log("test " + ciao);
+	console.log("position " + ciao[1].id);
 });
 
 
