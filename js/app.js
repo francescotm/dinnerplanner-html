@@ -13,9 +13,8 @@ $(function() {
 	console.log("numberOfGuests: " + guests);
 	
 	
-	var ciao = model.getAllIngredients();
-	console.log("test " + ciao);
-	console.log("position " + ciao[1].id);
+	//var ciao = model.getAllIngredients();
+	var dishingredient = model.getDishIngredients(1);
 });
 
 

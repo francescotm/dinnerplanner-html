@@ -39,10 +39,25 @@ var DinnerModel = function() {
 		for(key in fullMenu){
 			for(p in dishes)
 				if(dishes[p].id == fullMenu[key].id){
-					allIngredients.push(dishes[p].ingredients);
+
+					//allIngredients.push(dishes[p].ingredients);
 				}
 		}
 		return allIngredients;
+	}
+
+
+
+	this.getDishIngredients = function (id) {
+		var ingredients = [];
+		for(key in dishes) {
+			if (dishes[key].id == id) {
+				for (p in dishes[key].ingredients) {
+					ingredients.push(dishes[key].ingredients[p]);
+				}
+				console.dir("single dish ingr." + JSON.stringify(ingredients));
+			}
+		}
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
