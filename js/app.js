@@ -12,9 +12,9 @@ $(function() {
 
 	console.log("numberOfGuests: " + guests);
 	
-	
-	//var ciao = model.getAllIngredients();
 	var dishingredient = model.getDishIngredients(1);
+	var ciao = model.getAllIngredients();
+
 });
 
 

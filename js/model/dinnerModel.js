@@ -33,21 +33,20 @@ var DinnerModel = function() {
 		}
 	}
 
-	//Returns all ingredients for all the dishes on the menu.
+	//Returns all ingredients for all the dishes on the menu
 	this.getAllIngredients = function() {
-		var allIngredients = ["empty"];
+		var allIngredients = [];
 		for(key in fullMenu){
 			for(p in dishes)
 				if(dishes[p].id == fullMenu[key].id){
-
-					//allIngredients.push(dishes[p].ingredients);
+					allIngredients.push(this.getDishIngredients(fullMenu[key].id));
 				}
 		}
+		console.log("all dishes" + JSON.stringify(allIngredients));
 		return allIngredients;
 	}
 
-
-
+	// return all the ingredients for a single dish by id
 	this.getDishIngredients = function (id) {
 		var ingredients = [];
 		for(key in dishes) {
@@ -55,7 +54,8 @@ var DinnerModel = function() {
 				for (p in dishes[key].ingredients) {
 					ingredients.push(dishes[key].ingredients[p]);
 				}
-				console.dir("single dish ingr." + JSON.stringify(ingredients));
+				console.log("single dish" + JSON.stringify(ingredients));
+				return ingredients;
 			}
 		}
 	}
