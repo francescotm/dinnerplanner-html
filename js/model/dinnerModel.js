@@ -52,17 +52,33 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		var allIngredients = [];
 		var menu = this.getFullMenu();
-		for(key in menu){
-			for(p in dishes){
-				if(dishes[p].id == menu[key].id){
-					console.log("p: " + p);
-					console.log("key: " + key);
-					console.log("dishes pid: " + dishes[p].id);
-					console.log("menu key pid: " + menu[key].id);
-					allIngredients.push(this.getDishIngredients(menu[key].id));
+
+		for (dish in dishes) {
+			for (key in menu) {
+				if (menu[key].id == dishes[dish].id) {
+					console.log("dish in dishes: " + dish);
+					console.log("key in menu: " + key);
+					console.log("menu[key].id = " + menu[key].id);
+					console.log("dishes[dish].id = " + dishes[dish].id);
+					console.log(this.getDishIngredients(dishes[dish].id));
+					allIngredients.push(this.getDishIngredients(dishes[dish].id));
 				}
 			}
 		}
+
+		// for(key in menu){
+		// 	for(p in dishes){
+		// 		console.log("p " + p);
+		// 		console.log("key " + key);
+		// 		if(dishes[p].id === menu[key].id){
+		// 			console.log("NOW if is TRUE");
+		// 			console.log("dishes[p].id: " + dishes[p].id);
+		// 			console.log("menu[key].id: " + menu[key].id);
+		// 			console.log(this.getDishIngredients(dishes[p].id));
+		// 			//allIngredients.push(this.getDishIngredients(menu[key].id));
+		// 		}
+		// 	}
+		// }
 		// console.log("all dishes" + JSON.stringify(allIngredients));
 		return allIngredients;
 	}
@@ -71,9 +87,8 @@ var DinnerModel = function() {
 	this.getDishIngredients = function (id) {
 		var ingredients = [];
 		for(key in dishes) {
-			if (dishes[key].id == id) {
+			if (dishes[key].id === id) {
 				for (p in dishes[key].ingredients) {
-
 					ingredients.push(dishes[key].ingredients[p]);
 				}
 				// console.log("single dish" + JSON.stringify(ingredients));
@@ -106,18 +121,15 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		var dish = this.getDish(id);
-		if(fullMenu){
-		for(key in fullMenu){
-			if(dish.type == fullMenu[key].type){
-				this.removeDishFromMenu(fullMenu[key].id)
-				return fullMenu.push(dish);
-			}else {
-				return fullMenu.push(dish);
+			for(key in fullMenu) {
+				if(dish.type == fullMenu[key].type){
+					this.removeDishFromMenu(fullMenu[key].id)
+					return fullMenu.push(dish);
+				} else {
+					return fullMenu.push(dish);
+				}
 			}
-		}
-		}
-		return fullMenu.push(dish);
-		
+		return fullMenu.push(dish);	
 	}
 
 	//Removes dish from menu

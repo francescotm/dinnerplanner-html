@@ -12,31 +12,41 @@ $(function() {
 	var num = model.setNumberOfGuests(3);
 	var guests = model.getNumberOfGuests();
 
-	console.log("numberOfGuests: " +JSON.stringify(guests));
+	//console.log("numberOfGuests: " +JSON.stringify(guests));
 	
-	var dishingredient = model.getDishIngredients(100);
-	console.log("dishingredient " + JSON.stringify(dishingredient));
+	//ar dishingredient = model.getDishIngredients(100);
+	//console.log("dishingredient " + JSON.stringify(dishingredient));
 	//add to menu
-	model.addDishToMenu(1);
-	var menu = model.getFullMenu();
-	console.log("full menu before: " + JSON.stringify(menu));
-	model.addDishToMenu(2);
+	// model.addDishToMenu(201);
+	// var menu = model.getFullMenu();
+	// console.log("full menu before: " + JSON.stringify(menu));
 	
-	var menu = model.getFullMenu();
-	console.log("full menu before: " + JSON.stringify(menu));
+	 model.addDishToMenu(2);
+	 model.addDishToMenu(102);
+	 model.addDishToMenu(1);
+	// var menu = model.getFullMenu();
+	// console.log("full menu after: " + JSON.stringify(menu));
 	
-	//get all ingredients
-	var ciao = model.getAllIngredients();
+	//var singleIngredients = model.getDishIngredients(1);
+	//console.log("getDishIngredients: " + JSON.stringify(singleIngredients));
 	
-	console.log("all intredients " + JSON.stringify(ciao));
+	var allIngredients = model.getAllIngredients();
 
-	var type = model.getSelectedDish('starter');
-	console.log("get selected dish " + JSON.stringify(type));
-	var price = model.getTotalMenuPrice();
-	console.log("price= " + price);
-	console.log("full menu before: " + JSON.stringify(menu));
-	model.removeDishFromMenu(1);
-	console.log("full menu after: " + JSON.stringify(menu));
+	// var singleIngredients = model.getDishIngredients(103);
+	// console.log("getDishIngredients 103: " + JSON.stringify(singleIngredients));
+
+	// var singleIngredients = model.getDishIngredients(202);
+	// console.log("getDishIngredients 202: " + JSON.stringify(singleIngredients));
+	
+	console.log("all ingredients " + JSON.stringify(allIngredients));
+
+	//var type = model.getSelectedDish('starter');
+	//console.log("get selected dish " + JSON.stringify(type));
+	//var price = model.getTotalMenuPrice();
+	//console.log("price= " + price);
+	//console.log("full menu before: " + JSON.stringify(menu));
+	//model.removeDishFromMenu(1);
+	//console.log("full menu after: " + JSON.stringify(menu));
 });
 
 
