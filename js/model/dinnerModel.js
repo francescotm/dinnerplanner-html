@@ -34,7 +34,6 @@ var DinnerModel = function() {
 				selectedDish = this.getDish(fullMenu[key].id);
 				return selectedDish;
 			}
-
 		}
 
 	}
@@ -60,7 +59,6 @@ var DinnerModel = function() {
 				}
 			}
 		}
-
 		// for(key in menu){
 		// 	for(p in dishes){
 		// 		console.log("p " + p);
@@ -86,7 +84,6 @@ var DinnerModel = function() {
 				for (p in dishes[key].ingredients) {
 					ingredients.push(dishes[key].ingredients[p]);
 				}
-				// console.log("single dish" + JSON.stringify(ingredients));
 				return ingredients;
 			}
 		}
@@ -97,14 +94,14 @@ var DinnerModel = function() {
 		var shopList = this.getAllIngredients();
 		var total = 0;
 		var n = this.getNumberOfGuests();
-		console.log("n=" + n);
+		//console.log("n=" + n);
 		var price = 0;
 		for(key in shopList){
 			for (dish in shopList[key]){
 				for(ingredient in shopList[key][dish]){
 					price = parseFloat(shopList[key][dish].price);
-					}
-				console.log("price/ingredient: " + JSON.stringify(shopList[key][dish].price));
+				}
+				//console.log("price/ingredient: " + JSON.stringify(shopList[key][dish].price));
 				total += price * n;
 			}
 		}
