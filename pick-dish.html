@@ -31,11 +31,11 @@
 			<p>People <span id"numberOfGuests"></span></p>
 			<a id"minusGuest" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="mdi-content-remove"></i></a>
 			<a id"plusGuest" class="btn-floating btn-large waves-effect waves-light red"><i class="mdi-content-add"></i></a>
-
+		<div id="pickDishView">
 			<table class="responsive-table">
 		        <thead>
 		          <tr>
-		              <th data-field="dish-name">Dish name</th>
+		              <th data-field="dish-name" id="dishName">Dish name</th>
 		              <th data-field="dish-price">Cost</th>
 		          </tr>
 		        </thead>
@@ -47,12 +47,13 @@
 		          </tr>
 		          <tr>
 		            <td></td>
-		            <td>SEK 0.00</td>
+		            <td id="dish-total-price">SEK 0.00</td>
 		          </tr>
 		        </tbody>
       		</table>
       	<a class="btn disabled">Confirm dinner</a>
-		</div>
+      	</div><!-- pickDishView -->
+	</div><!-- row -->
 		<div class="col s12 m9 l9">
 			<div class="row amber lighten-3">
 				<div class="col s12 m12 l12">
