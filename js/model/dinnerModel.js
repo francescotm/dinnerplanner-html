@@ -56,11 +56,6 @@ var DinnerModel = function() {
 		for (dish in dishes) {
 			for (key in menu) {
 				if (menu[key].id == dishes[dish].id) {
-					console.log("dish in dishes: " + dish);
-					console.log("key in menu: " + key);
-					console.log("menu[key].id = " + menu[key].id);
-					console.log("dishes[dish].id = " + dishes[dish].id);
-					console.log(this.getDishIngredients(dishes[dish].id));
 					allIngredients.push(this.getDishIngredients(dishes[dish].id));
 				}
 			}
@@ -108,7 +103,6 @@ var DinnerModel = function() {
 			for (dish in shopList[key]){
 				for(ingredient in shopList[key][dish]){
 					price = parseFloat(shopList[key][dish].price);
-					
 					}
 				console.log("price/ingredient: " + JSON.stringify(shopList[key][dish].price));
 				total += price * n;
