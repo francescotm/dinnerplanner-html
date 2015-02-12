@@ -1,3 +1,9 @@
+// initialise selection tooggle
+$(document).ready(function() {
+    $('select').material_select();
+ });
+ 
+
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
@@ -9,8 +15,8 @@ $(function() {
 
 	//random code
 
-	var num = model.setNumberOfGuests(3);
-	var guests = model.getNumberOfGuests();
+	//var num = model.setNumberOfGuests(3);
+	//var guests = model.getNumberOfGuests();
 
 	//console.log("numberOfGuests: " +JSON.stringify(guests));
 	
@@ -21,16 +27,16 @@ $(function() {
 	// var menu = model.getFullMenu();
 	// console.log("full menu before: " + JSON.stringify(menu));
 	
-	 model.addDishToMenu(2);
-	 model.addDishToMenu(102);
-	 model.addDishToMenu(1);
+	// model.addDishToMenu(2);
+	// model.addDishToMenu(102);
+	// model.addDishToMenu(1);
 	// var menu = model.getFullMenu();
 	// console.log("full menu after: " + JSON.stringify(menu));
 	
 	//var singleIngredients = model.getDishIngredients(1);
 	//console.log("getDishIngredients: " + JSON.stringify(singleIngredients));
 	
-	var allIngredients = model.getAllIngredients();
+	//var allIngredients = model.getAllIngredients();
 
 	// var singleIngredients = model.getDishIngredients(103);
 	// console.log("getDishIngredients 103: " + JSON.stringify(singleIngredients));
@@ -38,7 +44,7 @@ $(function() {
 	// var singleIngredients = model.getDishIngredients(202);
 	// console.log("getDishIngredients 202: " + JSON.stringify(singleIngredients));
 	
-	console.log("all ingredients " + JSON.stringify(allIngredients));
+	//console.log("all ingredients " + JSON.stringify(allIngredients));
 
 	//var type = model.getSelectedDish('starter');
 	//console.log("get selected dish " + JSON.stringify(type));
@@ -50,7 +56,3 @@ $(function() {
 });
 
 
-// // initialise selection tooggle
-// $(document).ready(function() {
-//     $('select').material_select();
-//  });

@@ -11,4 +11,5 @@ var ExampleView = function (container) {
 	this.numberOfGuests.html(numberOfGuests);
 
 }
- 
+
+
