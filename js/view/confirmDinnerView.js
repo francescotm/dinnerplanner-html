@@ -1,4 +1,4 @@
-//PickDishView Object constructor
+//ConfirmDishView Object constructor
 var ConfirmDinnerView = function (container, model) {
 	
 	// Get all the relevant elements of the view (ones that show data
