@@ -46,7 +46,8 @@ for (var i = 0; i < menu.length; i++) {
 	cardAction.setAttribute("class", "card-action");
 	// dish price
 	var p = document.createElement('p');
-	var dishPrice = document.createTextNode(menu[i].price);
+	var price = model.getDishPrice(menu[i].id);
+	var dishPrice = document.createTextNode(price + " SEK");
 	p.appendChild(dishPrice);
 	cardAction.appendChild(p);
 	// append everything in containerDiv
@@ -58,9 +59,6 @@ for (var i = 0; i < menu.length; i++) {
 	dishes.appendChild(containerDiv);
 
 }
-
-console.log(totalPrice);
-
 	// Total price
 	var totalPriceDiv = document.createElement('div');
 	totalPriceDiv.setAttribute("class", "col s12 m4 l3");
