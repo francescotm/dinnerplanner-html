@@ -7,7 +7,7 @@ var PickDishView = function (container, model) {
 this.pickDish = container.find("#pickDishView");
 var allDishes = model.getAllDishes("main-dish", "");
 
-var dishes = document.createElement('div')
+var dishes = document.createElement('div');
 dishes.setAttribute("class", "row");
 dishes.setAttribute("id", "dishes");
 
