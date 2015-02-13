@@ -19,6 +19,7 @@ for(var i=0; i<allDishes.length; i++){
 	var cardImage = document.createElement('div')
 	cardImage.setAttribute("class", "card-image");
 	var image = document.createElement('img');
+	image.setAttribute("src", "images/"+allDishes[i].image);
 	cardImage.appendChild(image);
 	var cardContent = document.createElement('div')
 	cardContent.setAttribute("class", "card-content");
