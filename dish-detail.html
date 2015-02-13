@@ -1,133 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner planner</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dinner planner</title>
+        <!-- Bootstrap CSS
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row card-panel">
+                <div class="col s12 m7 l6">
+                    <h1>Homelette</h1>
+                </div>
+                <div class="col s12 m5 l6">
+                    <p class="home-description">From the best chefs in the world, directly to your kitchen</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m3 l3">
+                    <h3 class="small-heading">My dinner</h3>
+                    <div id="exampleView">
+                        <p>People <span id"numberOfGuests"></span></p>
+                        <a id"minusGuest" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="mdi-content-remove"></i></a>
+                        <a id"plusGuest" class="btn-floating btn-large waves-effect waves-light red"><i class="mdi-content-add"></i></a>
+                    </div>
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th data-field="name">Dish name</th>
+                                <th data-field="cost">Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pending</td>
+                                <td>0.00</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>SEK 0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="btn disabled">Confirm dinner</a>
+                </div>
+                <div class="col s12 m9 l9">
+                    <div class="col s12 m5 l5">
+                        <h3>Pasta</h3>
+                        <img class="responsive-img" src="images/pasta-big.jpg" alt="Pasta">
+                        <p>A nice, rich description of some kind of pasta. Pasta is so versatile, you can cook it with everything and it's always good. Isn't that amazing? Impossible not to love pasta.</p>
+                        <a class="waves-effect waves-light btn"><i class="mdi-navigation-arrow-back left"></i>Back to select dish</a>
+                    </div>
+                    <div class="col s12 m1 l1">
+                        <p class="white-text">padd</p>
+                    </div>
+                    <div class="col s12 m6 l6 amber lighten-3">
+                        <h3 class="small-heading">Ingredients for 4 people</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th data-field="ingredient-qnt">Quantity</th>
+                                    <th data-field="ingredient-name">Ingredient</th>
+                                    <th data-field="ingredient-price">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2 tbps</td>
+                                    <td>Olive oil</td>
+                                    <td>0.20</td>
+                                </tr>
+                                <tr>
+                                    <td>750 gr.</td>
+                                    <td>Lean beef mince</td>
+                                    <td>10.00</td>
+                                </tr>
+                                <tr>
+                                    <td>90 gr.</td>
+                                    <td>Pack prosciutto</td>
+                                    <td>15.00</td>
+                                </tr>
+                                <tr>
+                                    <td>100 ml.</td>
+                                    <td>Tomato sauce</td>
+                                    <td>10.00</td>
+                                </tr>
+                                <tr>
+                                    <td>200 ml.</td>
+                                    <td>Hot beef stock</td>
+                                    <td>20.00</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="btn">Confirm</a></td>
+                                    <td></td>
+                                    <td>SEK 77.20</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-    <!-- Bootstrap CSS 
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> -->
-
-	<!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>
-
-  </head>
-  <body>
-	<div class="container">
-		<div class="row card-panel">
-			<div class="col s12 m7 l6">
-				<h1>Homelette</h1>
-			</div>
-			<div class="col s12 m5 l6">
-				<p class="home-description">From the best chefs in the world, directly to your kitchen</p>
-			</div>
-		</div>
-
-	<div class="row">
-		<div class="col s12 m3 l3">
-			<h3 class="small-heading">My dinner</h3>
-			<div id="exampleView">
-				<p>People <span id"numberOfGuests"></span></p>
-				<a id"minusGuest" class="btn-floating btn-large waves-effect waves-light red disabled"><i class="mdi-content-remove"></i></a>
-				<a id"plusGuest" class="btn-floating btn-large waves-effect waves-light red"><i class="mdi-content-add"></i></a>
-			</div>
-
-			<table class="responsive-table">
-		        <thead>
-		          <tr>
-		              <th data-field="name">Dish name</th>
-		              <th data-field="cost">Cost</th>
-		          </tr>
-		        </thead>
-
-		        <tbody>
-		          <tr>
-		            <td>Pending</td>
-		            <td>0.00</td>
-		          </tr>
-		          <tr>
-		            <td></td>
-		            <td>SEK 0.00</td>
-		          </tr>
-		        </tbody>
-      		</table>
-      	<a class="btn disabled">Confirm dinner</a>
-		</div>
-		<div class="col s12 m9 l9">
-		<div class="col s12 m5 l5">
-			<h3>Pasta</h3>
-			<img class="responsive-img" src="images/pasta-big.jpg" alt="Pasta">
-			<p>A nice, rich description of some kind of pasta. Pasta is so versatile, you can cook it with everything and it's always good. Isn't that amazing? Impossible not to love pasta.</p>
-			<a class="waves-effect waves-light btn"><i class="mdi-navigation-arrow-back left"></i>Back to select dish</a>
-		</div>
-		<div class="col s12 m1 l1">
-			<p class="white-text">padd</p>
-		</div>
-		<div class="col s12 m6 l6 amber lighten-3">
-			<h3 class="small-heading">Ingredients for 4 people</h3>
-			<table>
-		        <thead>
-		          <tr>
-		              <th data-field="ingredient-qnt">Quantity</th>
-		              <th data-field="ingredient-name">Ingredient</th>
-		              <th data-field="ingredient-price">Price</th>
-		          </tr>
-		        </thead>
-
-		        <tbody>
-		          <tr>
-		            <td>2 tbps</td>
-		            <td>Olive oil</td>
-		            <td>0.20</td>
-		          </tr>
-		          <tr>
-		            <td>750 gr.</td>
-		            <td>Lean beef mince</td>
-		            <td>10.00</td>
-		          </tr>
-		          <tr>
-		            <td>90 gr.</td>
-		            <td>Pack prosciutto</td>
-		            <td>15.00</td>
-		          </tr>
-		          <tr>
-		            <td>100 ml.</td>
-		            <td>Tomato sauce</td>
-		            <td>10.00</td>
-		          </tr>
-		          <tr>
-		            <td>200 ml.</td>
-		            <td>Hot beef stock</td>
-		            <td>20.00</td>
-		          </tr>
-		           <tr>
-		            <td><a class="btn">Confirm</a></td>
-		            <td></td>
-		            <td>SEK 77.20</td>
-		          </tr>
-		        </tbody>
-		    </table>
-			
-		</div>
-		</div>
-	</div>
-
-	</div>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. 
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
-
-    <!-- Import materialize.js -->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-
-	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<script src="js/view/exampleViewController.js"></script>
-  </body>
+                    </div> <!--table end-->
+                </div>
+            </div>
+        </div>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc.
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+        <!-- Import materialize.js -->
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <!-- The application JavaScript code -->
+        <script src="js/app.js"></script>
+        <script src="js/model/dinnerModel.js"></script>
+        <script src="js/view/exampleView.js"></script>
+        <script src="js/view/exampleViewController.js"></script>
+    </body>
 </html>

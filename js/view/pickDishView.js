@@ -5,7 +5,7 @@ var PickDishView = function (container, model) {
   	// and/or ones that responed to interaction)
 	// this.price = container.find("#dish-total-price");
 this.pickDish = container.find("#pickDishView");
-var allDishes = model.getAllDishes("starter", "");
+var allDishes = model.getAllDishes("main-dish", "");
 
 var dishes = document.createElement('div')
 dishes.setAttribute("class", "row");
