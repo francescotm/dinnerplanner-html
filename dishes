@@ -1,0 +1,85 @@
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/pasta.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Pasta</a>
+			            </div>
+			            <div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/pizza.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Pizza</a>
+			            </div>
+			            <div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/mushrooms.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Mushrooms</a>
+			              
+			            </div>
+			            <div class="card-action">
+			            	<p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/fiorentina.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Fiorentina</a>
+			            </div>
+						<div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>	
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/cod.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Boiled cod</a>
+			            </div>
+			            <div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>	
+				</div>
+				<div class="col s6 m4 l4">
+					<div class="card">
+			            <div class="card-image">
+			              <img class="responsive-img" src="images/soup.jpg">
+			              <span class="card-title"></span>
+			            </div>
+			            <div class="card-content">
+			              <a href="#">Soup</a>
+			            </div>
+			            <div class="card-action">
+			              <p>A nice, rich description of this delicious dish.</p>
+			            </div>
+			        </div>	
+				</div>
