@@ -1,3 +1,7 @@
+// initialise selection tooggle
+$(document).ready(function() {
+    $('select').material_select();
+ });
 
  
 // MVC
@@ -10,9 +14,5 @@ $(function() {
 	var pickDishView = new pickDishView($("#pickDishView"), model);
 });
 
-// initialise selection tooggle
-$(document).ready(function() {
-    $('select').material_select();
- });
 
 
