@@ -40,11 +40,11 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		// var allDishes = [];
-		// for(key in fullMenu){
-		// 	allDishes.push(this.getDish(fullMenu[key].id));
-		// }
-		return fullMenu;
+		var allDishes = [];
+		for(key in fullMenu){
+			allDishes.push(this.getDish(fullMenu[key].id));
+		}
+		return allDishes;
 	}
 
 	//Returns all ingredients for all the dishes on the menu
