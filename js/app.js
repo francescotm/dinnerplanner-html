@@ -11,9 +11,10 @@ $(function() {
 
 	//And create the needed controllers and views
 	// var exampleView = new ExampleView($("#exampleView"), model);
+	var totalMenuView = new TotalMenuView($("#totalMenuView"), model);
 	//var pickDishView = new PickDishView($("#pickDishView"), model);
 	//var confirmDinnerView = new ConfirmDinnerView($("#confirmDinnerView"), model);
-	var recipeView = new RecipeView($("#recipeView"), model);
+	//var recipeView = new RecipeView($("#recipeView"), model);
 });
 
 
