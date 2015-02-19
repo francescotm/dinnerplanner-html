@@ -18,15 +18,15 @@ var TotalMenuView = function (container, model) {
 	// responsive column
 	var dinnerContainer = document.createElement('div');
 	//dinnerContainer.setAttribute("class", "col s12 m3 l3");
-	var dinnerHeading = document.createElement('h3');
-	dinnerHeading.setAttribute("class", "small-heading");
-	var dinnerHeadingText = document.createTextNode("My Dinner");
-	dinnerHeading.appendChild(dinnerHeadingText);
-	dinnerContainer.appendChild(dinnerHeading);
+	// var dinnerHeading = document.createElement('h3');
+	// dinnerHeading.setAttribute("class", "small-heading");
+	// var dinnerHeadingText = document.createTextNode("My Dinner");
+	// dinnerHeading.appendChild(dinnerHeadingText);
+	// dinnerContainer.appendChild(dinnerHeading);
 	
 	// number of guests
 	var peopleP = document.createElement('p');
-	var peopleText = document.createTextNode("People: ");
+	var peopleText = document.createTextNode("Number of guests: ");
 	var numberGuests = document.createElement('span');
 	numberGuests.setAttribute("id", "numberOfGuests");
 	var numberGuestsText = document.createTextNode(guests);
