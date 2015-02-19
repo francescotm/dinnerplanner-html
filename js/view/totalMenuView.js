@@ -90,7 +90,7 @@ var TotalMenuView = function (container, model) {
 		dishName.appendChild(dishNameText);
 		var price = model.getDishPrice(menu[i].id);
 		var dishCost = document.createElement('td');
-		var dishCostText = document.createTextNode(price);
+		var dishCostText = document.createTextNode(price*guests);
 		dishCost.appendChild(dishCostText);
 		dishRow.appendChild(dishName);
 		dishRow.appendChild(dishCost);
@@ -122,6 +122,7 @@ var TotalMenuView = function (container, model) {
 
 	this.update = function(){
 		numberGuests.innerHTML = model.getNumberOfGuests();
+		
 	};
 
 
