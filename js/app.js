@@ -10,7 +10,6 @@ $(function() {
 	var model = new DinnerModel();
 
 	//And create the needed controllers and views
-	// var exampleView = new ExampleView($("#exampleView"), model);
 	//var totalMenuView = new TotalMenuView($("#totalMenuView"), model);
 	//var pickDishView = new PickDishView($("#pickDishView"), model);
 	var topBarView = new TopBarView($("#topBarView"), model);
