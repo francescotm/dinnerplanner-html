@@ -95,7 +95,7 @@ var DinnerModel = function() {
 		}
 	}
 
-	// returns the price of a single ingredient by id (all the ingredients multiplied by number of guests)
+	// returns the price of a single dish by id (all the ingredients multiplied by number of guests)
 	this.getDishPrice = function (id) {
 		var dish = this.getDish(id);
 		var ingredients = this.getDishIngredients(id);
@@ -112,21 +112,28 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		var shopList = this.getAllIngredients();
+		var menu = this.getFullMenu();
 		var total = 0;
-		var n = this.getNumberOfGuests();
-		//console.log("n=" + n);
-		var price = 0;
-		for(key in shopList){
-			for (dish in shopList[key]){
-				for(ingredient in shopList[key][dish]){
-					price = parseFloat(shopList[key][dish].price);
-				}
-				//console.log("price/ingredient: " + JSON.stringify(shopList[key][dish].price));
-				total += price * n;
-			}
+		for (key in menu) {
+			total += this.getDishPrice(menu[key].id);
 		}
 		return total;
+
+		// var shopList = this.getAllIngredients();
+		// var total = 0;
+		// var n = this.getNumberOfGuests();
+		// //console.log("n=" + n);
+		// var price = 0;
+		// for(key in shopList){
+		// 	for (dish in shopList[key]){
+		// 		for(ingredient in shopList[key][dish]){
+		// 			price = parseFloat(shopList[key][dish].price);
+		// 		}
+		// 		//console.log("price/ingredient: " + JSON.stringify(shopList[key][dish].price));
+		// 		total += price * n;
+		// 	}
+		// }
+		// return total;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu

@@ -8,7 +8,7 @@ var ConfirmDinnerView = function (container, model) {
 
 	// set data to test view
 	model.setNumberOfGuests(2);
-	model.addDishToMenu(2);
+	model.addDishToMenu(1);
 	model.addDishToMenu(103);
 	model.addDishToMenu(200);
 	var menu = model.getFullMenu();

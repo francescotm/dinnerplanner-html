@@ -90,7 +90,7 @@ var TotalMenuView = function (container, model) {
 		dishName.appendChild(dishNameText);
 		var price = model.getDishPrice(menu[i].id);
 		var dishCost = document.createElement('td');
-		var dishCostText = document.createTextNode(price*guests);
+		var dishCostText = document.createTextNode(price);
 		dishCost.appendChild(dishCostText);
 		dishRow.appendChild(dishName);
 		dishRow.appendChild(dishCost);
@@ -99,12 +99,14 @@ var TotalMenuView = function (container, model) {
 
 	// total price
 	var totalRow = document.createElement('tr');
-	var totalEmpty = document.createElement('td');
+	var totalLabel = document.createElement('td');
+	var totalLabelText = document.createTextNode("Total: ");
+	totalLabel.appendChild(totalLabelText);
 	var totalCost = document.createElement('td');
 	totalCost.setAttribute("id", "dish-total-price");
 	var totalCostText = document.createTextNode("SEK " + totalPrice);
 	totalCost.appendChild(totalCostText);
-	totalRow.appendChild(totalEmpty);
+	totalRow.appendChild(totalLabel);
 	totalRow.appendChild(totalCost);
 	tbody.appendChild(totalRow);
 
@@ -122,6 +124,7 @@ var TotalMenuView = function (container, model) {
 
 	this.update = function(){
 		numberGuests.innerHTML = model.getNumberOfGuests();
+		totalCost.innerHTML = model.getTotalMenuPrice();
 		
 	};
 
