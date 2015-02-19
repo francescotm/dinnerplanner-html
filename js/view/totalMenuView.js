@@ -9,16 +9,11 @@ var TotalMenuView = function (container, model) {
 	var menu = model.getFullMenu();
 	var totalPrice = model.getTotalMenuPrice();
 	var guests = model.getNumberOfGuests();
-console.log("guests:" + guests);
 
-	//implement observer 
-	model.addObserver(this);
+	var plusButton;
+ 	var minusButton;
 
-	var update = function(){
-		// guests = model.getNumberOfGuests();
-	 this.guests.html(model.getNumberOfGuests());
-		console.log(guests);
-	};
+
 
 	// responsive column
 	var dinnerContainer = document.createElement('div');
@@ -59,8 +54,8 @@ console.log("guests:" + guests);
 	buttonContainer.appendChild(plusGuest);
 	dinnerContainer.appendChild(buttonContainer);
 
-	// this.plusButton = container.find("#plusGuest");
-	// this.minusButton = container.find("#minusGuest");
+	this.plusButton = plusGuest;
+	this.minusButton = minusGuest;
 
 	// table
 	var tableContainer = document.createElement('div');
@@ -126,6 +121,18 @@ console.log("guests:" + guests);
 	dinnerContainer.appendChild(confirmButton);
 
 	document.getElementById("totalMenuView").appendChild(dinnerContainer);
+
+		//implement observer 
+	model.addObserver(this);
+
+	
+	this.update = function(){
+		//this.numberGuestsText.html(model.getNumberOfGuests());
+		guests = model.getNumberOfGuests();
+		// guests = model.getNumberOfGuests();
+	 	//guests = model.getNumberOfGuests();
+	};
+	console.log("numberGuestsText " + guests);
 
 }
 

@@ -11,13 +11,16 @@ var DinnerModel = function() {
 	// set the number of guests by taking a parameter
 
 	this.setNumberOfGuests = function(num) {
-		this.numberOfGuests = num;
-		notifyObservers();
+		if (num > 0) {
+			numberOfGuests = num;
+			notifyObservers();
+		}
+		
 	}
 
 	// returns the number of guests 
 	this.getNumberOfGuests = function() {
-		return numberOfGuests;
+		return parseInt(numberOfGuests);
 	}
 
 	//function that returns a dish of specific ID
