@@ -104,5 +104,6 @@ var DishDetailView = function(container, model) {
     yellowDiv.appendChild(table);
     container.appendChild(containerDiv);
     container.appendChild(yellowDiv);
+    
     document.getElementById("dishDetail").appendChild(container);
 }

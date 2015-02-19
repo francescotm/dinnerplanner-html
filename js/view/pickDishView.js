@@ -44,7 +44,7 @@ for(var i=0; i<allDishes.length; i++){
 	dishes.appendChild(containerDiv);
 }
 
-this.pickDish.html(dishes);
+// this.pickDish.html(dishes);
 document.getElementById("pickDishView").appendChild(dishes);
 
 }
