@@ -179,7 +179,6 @@ var observers = [];
 //will add new observer to the array
 this.addObserver = function(observer) {
 	observers.push(observer);
-	console.log("observers in model " + observers);
 }
 
 //will call the update method on all the observers in the array

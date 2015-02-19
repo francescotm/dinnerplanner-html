@@ -9,6 +9,8 @@ $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
 
+	window.stage = "starter";
+
 	//And create the needed controllers and views
 	var totalMenuView = new TotalMenuView($("#totalMenuView"), model);
 	var totalMenuController =  new TotalMenuController(totalMenuView, model);

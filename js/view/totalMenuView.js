@@ -117,6 +117,12 @@ var TotalMenuView = function (container, model) {
 	var confirmText = document.createTextNode("Confirm dinner");
 	confirmButton.appendChild(confirmText);
 
+			//implement observer 
+	model.addObserver(this);
+
+	this.update = function(){
+		numberGuests.innerHTML = model.getNumberOfGuests();
+	};
 
 
 	// append stuff
@@ -125,16 +131,7 @@ var TotalMenuView = function (container, model) {
 
 	document.getElementById("totalMenuView").appendChild(dinnerContainer);
 
-		//implement observer 
-	model.addObserver(this);
 
-	
-	this.update = function(){
-		//document.getElementById("numberOfGuests");
-		numberGuests.text(model.getNumberOfGuests());
-		// guests = model.getNumberOfGuests();
-	 	//guests = model.getNumberOfGuests();
-	};
 
 }
 
