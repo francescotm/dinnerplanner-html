@@ -36,26 +36,29 @@ var TotalMenuView = function (container, model) {
 	dinnerContainer.appendChild(peopleP);
 	
 	// guests minus & plus button
-	var buttonContainer = document.createElement('div');
-	buttonContainer.setAttribute("id", "guest-buttons");
-	var minusGuest = document.createElement('a');
-	minusGuest.setAttribute("id", "minusGuest");
-	minusGuest.setAttribute("class", "btn-floating btn-large waves-effect waves-light red");
-	var plusGuest = document.createElement('a');
-	plusGuest.setAttribute("id", "plusGuest");
-	plusGuest.setAttribute("class", "btn-floating btn-large waves-effect waves-light red");
-	var minusIcon = document.createElement('i');
-	minusIcon.setAttribute("class", "mdi-content-remove");
-	var plusIcon = document.createElement('i');
-	plusIcon.setAttribute("class", "mdi-content-add");
-	minusGuest.appendChild(minusIcon);
-	plusGuest.appendChild(plusIcon);
-	buttonContainer.appendChild(minusGuest);
-	buttonContainer.appendChild(plusGuest);
-	dinnerContainer.appendChild(buttonContainer);
+	// var buttonContainer = document.createElement('div');
+	// buttonContainer.setAttribute("id", "guest-buttons");
+	// var minusGuest = document.createElement('a');
+	// minusGuest.setAttribute("id", "minusGuest");
+	// minusGuest.setAttribute("class", "btn-floating btn-large waves-effect waves-light red");
+	// var plusGuest = document.createElement('a');
+	// plusGuest.setAttribute("id", "plusGuest");
+	// plusGuest.setAttribute("class", "btn-floating btn-large waves-effect waves-light red");
+	// var minusIcon = document.createElement('i');
+	// minusIcon.setAttribute("class", "mdi-content-remove");
+	// var plusIcon = document.createElement('i');
+	// plusIcon.setAttribute("class", "mdi-content-add");
+	// minusGuest.appendChild(minusIcon);
+	// plusGuest.appendChild(plusIcon);
+	// buttonContainer.appendChild(minusGuest);
+	// buttonContainer.appendChild(plusGuest);
+	// dinnerContainer.appendChild(buttonContainer);
 
-	this.plusButton = plusGuest;
-	this.minusButton = minusGuest;
+	// this.plusButton = plusGuest;
+	// this.minusButton = minusGuest;
+
+	this.plusButton = container.find("#plusGuest");
+	this.minusButton = container.find("#minusGuest");
 
 	// table
 	var tableContainer = document.createElement('div');
@@ -127,12 +130,11 @@ var TotalMenuView = function (container, model) {
 
 	
 	this.update = function(){
-		//this.numberGuestsText.html(model.getNumberOfGuests());
-		guests = model.getNumberOfGuests();
+		//document.getElementById("numberOfGuests");
+		numberGuests.text(model.getNumberOfGuests());
 		// guests = model.getNumberOfGuests();
 	 	//guests = model.getNumberOfGuests();
 	};
-	console.log("numberGuestsText " + guests);
 
 }
 

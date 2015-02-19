@@ -179,14 +179,17 @@ var observers = [];
 //will add new observer to the array
 this.addObserver = function(observer) {
 	observers.push(observer);
+	console.log("observers in model " + observers);
 }
 
 //will call the update method on all the observers in the array
 var notifyObservers = function(obj) {
 	for(var i = 0; i<observers.length; i++){
 		observers[i].update(obj);
+		console.log("i'm in notifyObservers");
 	}
 }
+
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and

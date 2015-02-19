@@ -39,7 +39,7 @@ for(var i=0; i<allDishes.length; i++){
 	cardDiv.appendChild(cardAction);
 	containerDiv.appendChild(cardDiv);
 
-	console.log(containerDiv);
+	//console.log(containerDiv);
 
 	dishes.appendChild(containerDiv);
 }
