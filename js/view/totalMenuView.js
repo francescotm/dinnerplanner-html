@@ -111,6 +111,7 @@ var TotalMenuView = function (container, model) {
 	dinnerContainer.appendChild(confirmButton);
 
 	document.getElementById("totalMenuView").appendChild(dinnerContainer);
+	
 }
 
 

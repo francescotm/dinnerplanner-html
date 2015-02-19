@@ -7,11 +7,12 @@ var DinnerModel = function() {
 	var numberOfGuests = 0;
 	var fullMenu = [];
 
+
 	// set the number of guests by taking a parameter
 
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
-		//CHANGE FOR LAB 3
+		notifyObservers();
 	}
 
 	// returns the number of guests 
@@ -170,9 +171,19 @@ var DinnerModel = function() {
 	  });	
 	}
 
+//Observable pattern implementation
+var observers = [];
+//will add new observer to the array
+this.addObserver = function(observer) {
+	this.observers.push(observer);
+}
 
-
-
+//will call the update method on all the observers in the array
+var notifyObservers = function(obj) {
+	for(var i = 0; i<observers.length; i++){
+		observers[i].update(obj);
+	}
+}
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
