@@ -8,8 +8,10 @@ var DinnerModel = function() {
 	var fullMenu = [];
 
 	// set the number of guests by taking a parameter
+
 	this.setNumberOfGuests = function(num) {
 		this.numberOfGuests = num;
+		//CHANGE FOR LAB 3
 	}
 
 	// returns the number of guests 
