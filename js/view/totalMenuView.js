@@ -59,8 +59,8 @@ console.log("guests:" + guests);
 	buttonContainer.appendChild(plusGuest);
 	dinnerContainer.appendChild(buttonContainer);
 
-	this.plusButton = container.find("#plusGuest");
-	this.minusButton = container.find("#minusGuest");
+	// this.plusButton = container.find("#plusGuest");
+	// this.minusButton = container.find("#minusGuest");
 
 	// table
 	var tableContainer = document.createElement('div');
