@@ -115,15 +115,20 @@ var TotalMenuView = function (container, model) {
 
 	// total price
 	var totalRow = document.createElement('tr');
+	totalRow.setAttribute("class", "totalPriceMenu");
 	var totalLabel = document.createElement('td');
 	var totalLabelText = document.createTextNode("Total: ");
 	totalLabel.appendChild(totalLabelText);
 	var totalCost = document.createElement('td');
 	totalCost.setAttribute("id", "dish-total-price");
 	var totalCostText = document.createTextNode(totalPrice);
+	var totalCurrency = document.createElement('td');
+	var totalCurrencyText = document.createTextNode("SEK");
+	totalCurrency.appendChild(totalCurrencyText);
 	totalCost.appendChild(totalCostText);
 	totalRow.appendChild(totalLabel);
 	totalRow.appendChild(totalCost);
+	totalRow.appendChild(totalCurrency);
 	tbody.appendChild(totalRow);
 
 	table.appendChild(tbody);
@@ -131,7 +136,7 @@ var TotalMenuView = function (container, model) {
 
 	// confirm dinner button
 	var confirmButton = document.createElement('a');
-	confirmButton.setAttribute("class", "btn");
+	confirmButton.setAttribute("class", "btn confirmDinnerButton");
 	var confirmText = document.createTextNode("Confirm dinner");
 	confirmButton.appendChild(confirmText);
 
