@@ -74,8 +74,10 @@ var TotalMenuView = function (container, model) {
 	var headerCost = document.createElement('th');
 	var headerCostText = document.createTextNode("Cost");
 	headerCost.appendChild(headerCostText);
+	var headerDelete = document.createElement('th');
 	headerRow.appendChild(headerDish);
 	headerRow.appendChild(headerCost);
+	headerRow.appendChild(headerDelete);
 	tableHeader.appendChild(headerRow);
 	table.appendChild(tableHeader);
 
@@ -85,15 +87,29 @@ var TotalMenuView = function (container, model) {
 	// dishes in the menu with price
 	for (var i = 0; i < menu.length; i++) {
 		var dishRow = document.createElement('tr');
+		dishRow.setAttribute("id", "dish-row-"+i);
+		dishRow.setAttribute("data-id", menu[i].id);
 		var dishName = document.createElement('td');
 		var dishNameText = document.createTextNode(menu[i].name);
 		dishName.appendChild(dishNameText);
 		var price = model.getDishPrice(menu[i].id);
 		var dishCost = document.createElement('td');
+		dishCost.setAttribute("id", "dish-price-"+menu[i].id);
 		var dishCostText = document.createTextNode(price);
 		dishCost.appendChild(dishCostText);
+		var dishDelete = document.createElement('td');
+		var dishDeleteLink = document.createElement('a');
+		dishDelete.setAttribute("class", "remove-dish-button");
+		dishDelete.setAttribute("data-id", menu[i].id);
+		dishDeleteLink.setAttribute("id", "remove-dish-"+i);
+		dishDeleteLink.setAttribute("href", "#");
+		dishDeleteIcon = document.createElement('i');
+		dishDeleteIcon.setAttribute("class", "mdi-action-highlight-remove grey-text");
+		dishDeleteLink.appendChild(dishDeleteIcon);
+		dishDelete.appendChild(dishDeleteLink);
 		dishRow.appendChild(dishName);
 		dishRow.appendChild(dishCost);
+		dishRow.appendChild(dishDelete);
 		tbody.appendChild(dishRow);
 	}
 
@@ -104,7 +120,7 @@ var TotalMenuView = function (container, model) {
 	totalLabel.appendChild(totalLabelText);
 	var totalCost = document.createElement('td');
 	totalCost.setAttribute("id", "dish-total-price");
-	var totalCostText = document.createTextNode("SEK " + totalPrice);
+	var totalCostText = document.createTextNode(totalPrice);
 	totalCost.appendChild(totalCostText);
 	totalRow.appendChild(totalLabel);
 	totalRow.appendChild(totalCost);
@@ -119,12 +135,18 @@ var TotalMenuView = function (container, model) {
 	var confirmText = document.createTextNode("Confirm dinner");
 	confirmButton.appendChild(confirmText);
 
-			//implement observer 
+	//implement observer 
 	model.addObserver(this);
 
 	this.update = function(){
 		numberGuests.innerHTML = model.getNumberOfGuests();
 		totalCost.innerHTML = model.getTotalMenuPrice();
+		var menu = model.getFullMenu();
+		for (var i = 0; i < menu.length; i++) {
+			var price = model.getDishPrice(menu[i].id);
+			var singleDishPrice = document.getElementById("dish-price-"+menu[i].id);
+			singleDishPrice.innerHTML = price;
+		}
 		
 	};
 

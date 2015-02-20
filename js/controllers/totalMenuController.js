@@ -1,4 +1,3 @@
-
 var TotalMenuController = function(view, model ) {
  
  //console.log(view);
@@ -9,15 +8,18 @@ var TotalMenuController = function(view, model ) {
  //console.log(model.setNumberOfGuests(3));
  //console.log("controller guests after" + model.getNumberOfGuests());
 
-
  view.plusButton.click(function(){
- 	console.log("clicking clicking");
- model.setNumberOfGuests(model.getNumberOfGuests() + 1);
- console.log("number of guests plus" + model.getNumberOfGuests());
-
+ 	model.setNumberOfGuests(model.getNumberOfGuests() + 1);
  });
  
  view.minusButton.click(function(){
- model.setNumberOfGuests(model.getNumberOfGuests() - 1);
+ 	model.setNumberOfGuests(model.getNumberOfGuests() - 1);
  });
+
+$(".remove-dish-button").click(function(){
+	var id = $(this).data("id");
+   	$("*[data-id=" + id + "]").remove();
+   	model.removeDishFromMenu(id);
+});
+
 }

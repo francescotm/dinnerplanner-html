@@ -147,6 +147,7 @@ var DinnerModel = function() {
 				} else {
 					return fullMenu.push(dish);
 				}
+				notifyObservers();
 			}
 		return fullMenu.push(dish);	
 	}
@@ -156,6 +157,7 @@ var DinnerModel = function() {
 		for(dish in fullMenu)
 			if(fullMenu[dish].id === id){
 				fullMenu.splice(dish, 1);
+				notifyObservers();
 			}
 	}
 
