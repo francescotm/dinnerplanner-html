@@ -102,7 +102,7 @@ var TotalMenuView = function (container, model) {
 		dishDelete.setAttribute("class", "remove-dish-button");
 		dishDelete.setAttribute("data-id", menu[i].id);
 		dishDeleteLink.setAttribute("id", "remove-dish-"+i);
-		dishDeleteLink.setAttribute("href", "#");
+		dishDeleteLink.setAttribute("href", "#dish-price-"+menu[i].id);
 		dishDeleteIcon = document.createElement('i');
 		dishDeleteIcon.setAttribute("class", "mdi-action-highlight-remove grey-text");
 		dishDeleteLink.appendChild(dishDeleteIcon);
