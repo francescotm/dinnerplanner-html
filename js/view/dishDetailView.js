@@ -94,7 +94,16 @@ var DishDetailView = function(container, model) {
 	totalRow.appendChild(totalCost);
 	tbody.appendChild(totalRow);
 
+//implement observer 
+    model.addObserver(this);
 
+    this.update = function(){
+        //price for each ingredient
+        //total price
+        //confirm dish 
+        //back to pick dish
+        
+    };
 
 
 
