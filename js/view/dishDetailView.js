@@ -3,10 +3,11 @@ var DishDetailView = function(container, model) {
     // Get all the relevant elements of the view (ones that show data
     // and/or ones that responed to interaction)
     var id = 1;
-    var num = 1;
+ 
+    var guests = model.getNumberOfGuests();
     this.dishDetail = container.find("#dishDetail");
     var dish = model.getDish(id);
-    console.log(dish);
+    // console.log(dish);
     var container = document.createElement('div');
     //create detail view 
     var containerDiv = document.createElement('div')
@@ -39,7 +40,7 @@ var DishDetailView = function(container, model) {
     yellowDiv.setAttribute("class", "col s12 m6 l6 amber lighten-3");
     var heading = document.createElement('h3');
     heading.setAttribute("class", 'small-heading');
-    var t = document.createTextNode('Ingredients for ' + num + ' people');
+    var t = document.createTextNode('Ingredients for ' + guests + ' people');
     heading.appendChild(t);
     var table = document.createElement('table');
     var thead = document.createElement('thead');
@@ -61,23 +62,26 @@ var DishDetailView = function(container, model) {
     for (var x = 0; x < dish.ingredients.length; x++) {
         var row = document.createElement('tr');
         var td1 = document.createElement('td');
-        var td1t = document.createTextNode(dish.ingredients[x].quantity * num);
+        td1.setAttribute("id", "ing-quant-"+x);
+        var td1t = document.createTextNode(dish.ingredients[x].quantity * guests);
         td1.appendChild(td1t);
         var td2 = document.createElement('td');
         var td2t = document.createTextNode(dish.ingredients[x].name);
         td2.appendChild(td2t);
         var td3 = document.createElement('td');
-        var td3t = document.createTextNode(dish.ingredients[x].price * num + " SEK");
+         td1.setAttribute("id", "ing-price-"+x);
+        var td3t = document.createTextNode(dish.ingredients[x].price * guests + " SEK");
         td3.appendChild(td3t);
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
-        price += dish.ingredients[x].price * num;
+        price += dish.ingredients[x].price * guests;
         tbody.appendChild(row);
     }
 	// confirm dinner button
 	var confirmButton = document.createElement('a');
 	confirmButton.setAttribute("class", "btn");
+    confirmButton.setAttribute("id", "confirmDishButton");
 	var confirmText = document.createTextNode("Confirm Dish");
 	confirmButton.appendChild(confirmText);
 
@@ -98,8 +102,21 @@ var DishDetailView = function(container, model) {
     model.addObserver(this);
 
     this.update = function(){
+        guests = model.getNumberOfGuests();
+        //don't know if this works?!
+        t.innerHTML = 'Ingredients for ' + model.getNumberOfGuests() + ' people' ;
         //price for each ingredient
+        for (var i = 0; i < dish.ingredients.length; i++) {
+            var singleIngredientQuant = document.getElementById( "ing-quant-"+ i) ;
+            singleIngredientPrice.innerHTML = dish.ingredients[i].quantity * guests;
+            var singleIngredientPrice = document.getElementById( "ing-price-"+ i) ;
+            singleIngredientPrice.innerHTML = dish.ingredients[i].price * guests;
+
+        }
+
         //total price
+        var totalPrice = document.getElementById("dish-total-price") ;
+        totalPrice.innerHTML = "Total: " + model.getDishPrice(id) + " SEK"; 
         //confirm dish 
         //back to pick dish
         
