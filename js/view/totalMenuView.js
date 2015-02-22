@@ -161,10 +161,15 @@ var TotalMenuView = function (container, model) {
 					continue;
 				}
 			}
+			console.log("total price now " + model.getTotalMenuPrice());
+			console.log("menu now " + model.getFullMenu());
+			totalCost = document.getElementById("dish-total-price");	
 			totalCost.innerHTML = model.getTotalMenuPrice();
+			
 		} else if (obj == "addDishToMenu" || "removeDishFromMenu") {
 			console.log("menu in update" + newMenu);
-			printMenu(newMenu);	
+			printMenu(newMenu);
+			totalCost = document.getElementById("dish-total-price");	
 			totalCost.innerHTML = model.getTotalMenuPrice();
 		}
 	};

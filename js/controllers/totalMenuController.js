@@ -17,7 +17,6 @@ var TotalMenuController = function(view, model ) {
  });
 
  $(document).on('click', '.remove-dish-button', function(){
-        console.log("im in remove function");
 	var removeid = $(this).data("id");
 	console.log("id to remove " + removeid);
    	model.removeDishFromMenu(removeid);           

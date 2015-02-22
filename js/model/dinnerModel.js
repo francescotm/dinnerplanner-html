@@ -166,7 +166,7 @@ var DinnerModel = function() {
 			notifyObservers("addDishToMenu");
 			
 		}	
-		return fullMenu.push(dish);	
+		//return fullMenu.push(dish);	
 	}
 
 	//Removes dish from menu
