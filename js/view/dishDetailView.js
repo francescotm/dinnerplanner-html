@@ -82,21 +82,27 @@ var DishDetailView = function(container, model) {
 	var confirmButton = document.createElement('a');
 	confirmButton.setAttribute("class", "btn");
     confirmButton.setAttribute("id", "confirmDishButton");
-	var confirmText = document.createTextNode("Confirm Dish");
+	var confirmText = document.createTextNode("Add Dish");
 	confirmButton.appendChild(confirmText);
 
     // total price
 	var totalRow = document.createElement('tr');
+    totalRow.setAttribute("class", "totalPriceDish");
 	var totalEmpty = document.createElement('td');
+    var totalCostLabel = document.createElement('td');
+    var totalCostLabelText = document.createTextNode("Total");
+    totalCostLabel.appendChild(totalCostLabelText);
 	var totalCost = document.createElement('td');
 	totalCost.setAttribute("id", "single-dish-total-price");
-	var totalCostText = document.createTextNode("Total: " + price + " SEK");
-	
+	var totalCostText = document.createTextNode(price + " SEK");
 	totalCost.appendChild(totalCostText);
-	totalRow.appendChild(confirmButton);
+
 	totalRow.appendChild(totalEmpty);
+    totalRow.appendChild(totalCostLabel);
 	totalRow.appendChild(totalCost);
 	tbody.appendChild(totalRow);
+    tbody.appendChild(confirmButton);
+
 
 //implement observer 
     model.addObserver(this);
@@ -117,7 +123,7 @@ var DishDetailView = function(container, model) {
 
         //total price
         var totalPrice = document.getElementById("single-dish-total-price") ;
-        totalPrice.innerHTML = "Total: " + model.getDishPrice(id) + " SEK"; 
+        totalPrice.innerHTML = model.getDishPrice(id) + " SEK"; 
         //confirm dish 
         //back to pick dish
         
