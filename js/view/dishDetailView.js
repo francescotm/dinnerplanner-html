@@ -108,9 +108,8 @@ var DishDetailView = function(container, model) {
     model.addObserver(this);
 
     this.update = function(){
-        guests = model.getNumberOfGuests();
-        //don't know if this works?!
-        t.innerHTML = 'Ingredients for ' + model.getNumberOfGuests() + ' people' ;
+        // Heading with the number of guests
+        heading.innerHTML =  "Ingredients for " + model.getNumberOfGuests() + " people";
         //price for each ingredient
         for (var i = 0; i < dish.ingredients.length; i++) {
             var singleIngredientQuant = document.getElementById( "ing-quant-"+ i) ;
