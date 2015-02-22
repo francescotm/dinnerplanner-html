@@ -109,6 +109,7 @@ var DishDetailView = function(container, model) {
     model.addObserver(this);
 
     this.update = function(){
+        guests = model.getNumberOfGuests();
         // Heading with the number of guests
         heading.innerHTML =  "Ingredients for " + model.getNumberOfGuests() + " people";
         //price for each ingredient
