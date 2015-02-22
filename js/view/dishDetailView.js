@@ -89,7 +89,7 @@ var DishDetailView = function(container, model) {
 	var totalRow = document.createElement('tr');
 	var totalEmpty = document.createElement('td');
 	var totalCost = document.createElement('td');
-	totalCost.setAttribute("id", "dish-total-price");
+	totalCost.setAttribute("id", "single-dish-total-price");
 	var totalCostText = document.createTextNode("Total: " + price + " SEK");
 	
 	totalCost.appendChild(totalCostText);
@@ -111,12 +111,12 @@ var DishDetailView = function(container, model) {
             console.log(singleIngredientQuant);
             singleIngredientQuant.innerHTML = dish.ingredients[i].quantity * guests;
             var singleIngredientPrice = document.getElementById( "ing-price-"+ i) ;
-            singleIngredientPrice.innerHTML = dish.ingredients[i].price * guests;
+            singleIngredientPrice.innerHTML = dish.ingredients[i].price * guests + " SEK";
 
         }
 
         //total price
-        var totalPrice = document.getElementById("dish-total-price") ;
+        var totalPrice = document.getElementById("single-dish-total-price") ;
         totalPrice.innerHTML = "Total: " + model.getDishPrice(id) + " SEK"; 
         //confirm dish 
         //back to pick dish
