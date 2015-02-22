@@ -16,10 +16,11 @@ var TotalMenuController = function(view, model ) {
  	model.setNumberOfGuests(model.getNumberOfGuests() - 1);
  });
 
-$(".remove-dish-button").click(function(){
-	var id = $(this).data("id");
-   	$("*[data-id=" + id + "]").remove();
-   	model.removeDishFromMenu(id);
+ $(document).on('click', '.remove-dish-button', function(){
+        console.log("im in remove function");
+	var removeid = $(this).data("id");
+	console.log("id to remove " + removeid);
+   	model.removeDishFromMenu(removeid);           
 });
 
 }

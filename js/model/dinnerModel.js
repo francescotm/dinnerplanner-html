@@ -13,7 +13,7 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		if (num > 0) {
 			numberOfGuests = num;
-			notifyObservers();
+			notifyObservers("setNumberOfGuests");
 		}
 		
 	}
@@ -140,25 +140,44 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		var dish = this.getDish(id);
+		var type = dish.type;
+		console.log("im in addDishToMenu");
+		console.log(fullMenu);
+		if (fullMenu.lenght > 0) {
+			console.log("menu fulll");
 			for(key in fullMenu) {
 				if(dish.type == fullMenu[key].type){
 					this.removeDishFromMenu(fullMenu[key].id)
 					return fullMenu.push(dish);
+					notifyObservers("addDishToMenu");
+					console.log("add dish same id, notified update");
 				} else {
 					return fullMenu.push(dish);
-				}
-				notifyObservers();
+					notifyObservers("addDishToMenu");
+					console.log("add dish, notified");
+				}	
 			}
+		} else {
+			console.log("menu empty");
+			//return fullMenu.push(dish);
+			//fullMenu[type] = id;
+			fullMenu.push(dish);
+			console.log("going to notify");
+			notifyObservers("addDishToMenu");
+			
+		}	
 		return fullMenu.push(dish);	
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		for(dish in fullMenu)
-			if(fullMenu[dish].id === id){
-				fullMenu.splice(dish, 1);
-				notifyObservers();
-			}
+		for(dish in fullMenu) {
+			if(fullMenu[dish].id == id){
+				fullMenu.splice(dish, 2);
+				console.log("notify remove dish " + id);
+				notifyObservers("removeDishFromMenu");
+			}	
+		}
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

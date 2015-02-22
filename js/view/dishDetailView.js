@@ -118,15 +118,15 @@ var DishDetailView = function(container, model) {
             singleIngredientQuant.innerHTML = dish.ingredients[i].quantity * guests;
             var singleIngredientPrice = document.getElementById( "ing-price-"+ i) ;
             singleIngredientPrice.innerHTML = dish.ingredients[i].price * guests + " SEK";
-
         }
 
         //total price
         var totalPrice = document.getElementById("single-dish-total-price") ;
         totalPrice.innerHTML = model.getDishPrice(id) + " SEK"; 
+
         //confirm dish 
-        //back to pick dish
         
+        //back to pick dish        
     };
 
 

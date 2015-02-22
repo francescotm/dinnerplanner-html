@@ -4,7 +4,7 @@ var DishDetailController = function(view, model ) {
 $("#confirmDishButton").click(function(){
 	var id = $(this).data("id");
   	model.addDishToMenu(id);
-  	// THIS WORKS, BUT WE NEED TO REPRINT THE NEW MENU IN THE UPDATE IN TOTALMENUVIEW
+  	$(this).addClass("disabled");
 });
 
 

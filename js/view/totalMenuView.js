@@ -3,9 +3,9 @@ var TotalMenuView = function (container, model) {
 
 	// set data to test view
 	// model.setNumberOfGuests(2);
-	model.addDishToMenu(2);
-	model.addDishToMenu(103);
-	model.addDishToMenu(200);
+	//model.addDishToMenu(2);
+	//model.addDishToMenu(103);
+	//model.addDishToMenu(200);
 	var menu = model.getFullMenu();
 	var totalPrice = model.getTotalMenuPrice();
 	var guests = model.getNumberOfGuests();
@@ -83,35 +83,40 @@ var TotalMenuView = function (container, model) {
 
 	// tbody
 	var tbody = document.createElement('tbody');
+	tbody.setAttribute("id", "menu-table");
 
 	// dishes in the menu with price
-	for (var i = 0; i < menu.length; i++) {
-		var dishRow = document.createElement('tr');
-		dishRow.setAttribute("id", "dish-row-"+i);
-		dishRow.setAttribute("data-id", menu[i].id);
-		var dishName = document.createElement('td');
-		var dishNameText = document.createTextNode(menu[i].name);
-		dishName.appendChild(dishNameText);
-		var price = model.getDishPrice(menu[i].id);
-		var dishCost = document.createElement('td');
-		dishCost.setAttribute("id", "dish-price-"+menu[i].id);
-		var dishCostText = document.createTextNode(price);
-		dishCost.appendChild(dishCostText);
-		var dishDelete = document.createElement('td');
-		var dishDeleteLink = document.createElement('a');
-		dishDelete.setAttribute("class", "remove-dish-button");
-		dishDelete.setAttribute("data-id", menu[i].id);
-		dishDeleteLink.setAttribute("id", "remove-dish-"+i);
-		dishDeleteLink.setAttribute("href", "#dish-price-"+menu[i].id);
-		dishDeleteIcon = document.createElement('i');
-		dishDeleteIcon.setAttribute("class", "mdi-action-highlight-remove grey-text");
-		dishDeleteLink.appendChild(dishDeleteIcon);
-		dishDelete.appendChild(dishDeleteLink);
-		dishRow.appendChild(dishName);
-		dishRow.appendChild(dishCost);
-		dishRow.appendChild(dishDelete);
-		tbody.appendChild(dishRow);
-	}
+	var printMenu = function(menu) {
+		tbody.innerHTML = "";
+		for (var i = 0; i < menu.length; i++) {
+			var dishRow = document.createElement('tr');
+			dishRow.setAttribute("id", "dish-row-"+i);
+			dishRow.setAttribute("data-id", menu[i].id);
+			var dishName = document.createElement('td');
+			var dishNameText = document.createTextNode(menu[i].name);
+			dishName.appendChild(dishNameText);
+			var price = model.getDishPrice(menu[i].id);
+			var dishCost = document.createElement('td');
+			dishCost.setAttribute("id", "dish-price-"+menu[i].id);
+			var dishCostText = document.createTextNode(price);
+			dishCost.appendChild(dishCostText);
+			var dishDelete = document.createElement('td');
+			var dishDeleteLink = document.createElement('a');
+			dishDelete.setAttribute("class", "remove-dish-button");
+			dishDelete.setAttribute("data-id", menu[i].id);
+			dishDeleteLink.setAttribute("id", "remove-dish-"+i);
+			dishDeleteLink.setAttribute("href", "#dish-price-"+menu[i].id);
+			dishDeleteIcon = document.createElement('i');
+			dishDeleteIcon.setAttribute("class", "mdi-action-highlight-remove grey-text");
+			dishDeleteLink.appendChild(dishDeleteIcon);
+			dishDelete.appendChild(dishDeleteLink);
+			dishRow.appendChild(dishName);
+			dishRow.appendChild(dishCost);
+			dishRow.appendChild(dishDelete);
+			tbody.appendChild(dishRow);
+		}
+	} // function printeMenu
+	//printMenu(menu);
 
 	// total price
 	var totalRow = document.createElement('tr');
@@ -129,9 +134,9 @@ var TotalMenuView = function (container, model) {
 	totalRow.appendChild(totalLabel);
 	totalRow.appendChild(totalCost);
 	totalRow.appendChild(totalCurrency);
-	tbody.appendChild(totalRow);
 
 	table.appendChild(tbody);
+	table.appendChild(totalRow);
 	tableContainer.appendChild(table);
 
 	// confirm dinner button
@@ -143,16 +148,25 @@ var TotalMenuView = function (container, model) {
 	//implement observer 
 	model.addObserver(this);
 
-	this.update = function(){
-		numberGuests.innerHTML = model.getNumberOfGuests();
-		totalCost.innerHTML = model.getTotalMenuPrice();
-		var menu = model.getFullMenu();
-		for (var i = 0; i < menu.length; i++) {
-			var price = model.getDishPrice(menu[i].id);
-			var singleDishPrice = document.getElementById("dish-price-"+menu[i].id);
-			singleDishPrice.innerHTML = price;
+	this.update = function(obj){
+		var newMenu = model.getFullMenu();
+		if (obj == "setNumberOfGuests") {
+			numberGuests.innerHTML = model.getNumberOfGuests();
+			for (var i = 0; i < newMenu.length; i++) {
+				var price = model.getDishPrice(newMenu[i].id);
+				var singleDishPrice = document.getElementById("dish-price-"+newMenu[i].id);
+				if (singleDishPrice) {
+					singleDishPrice.innerHTML = price;
+				} else {
+					continue;
+				}
+			}
+			totalCost.innerHTML = model.getTotalMenuPrice();
+		} else if (obj == "addDishToMenu" || "removeDishFromMenu") {
+			console.log("menu in update" + newMenu);
+			printMenu(newMenu);	
+			totalCost.innerHTML = model.getTotalMenuPrice();
 		}
-		
 	};
 
 
