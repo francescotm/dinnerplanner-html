@@ -7,10 +7,10 @@ var RecipeView = function (container, model) {
 	this.recipe = container.find("#recipeView");
 
 	// set data to test view
-	model.setNumberOfGuests(2);
-	model.addDishToMenu(2);
-	model.addDishToMenu(103);
-	model.addDishToMenu(200);
+	//model.setNumberOfGuests(2);
+	//model.addDishToMenu(2);
+	//model.addDishToMenu(103);
+	//model.addDishToMenu(200);
 	var menu = model.getFullMenu();
 	var guests = model.getNumberOfGuests();
 

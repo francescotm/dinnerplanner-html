@@ -7,10 +7,10 @@ var ConfirmDinnerView = function (container, model) {
 	this.confirmDinner = container.find("#confirmDinnerView");
 
 	// set data to test view
-	model.setNumberOfGuests(2);
-	model.addDishToMenu(1);
-	model.addDishToMenu(103);
-	model.addDishToMenu(200);
+	//model.setNumberOfGuests(2);
+	//model.addDishToMenu(1);
+	//model.addDishToMenu(103);
+	//model.addDishToMenu(200);
 	var menu = model.getFullMenu();
 	var totalPrice = model.getTotalMenuPrice();
 	var guests = model.getNumberOfGuests();
@@ -113,9 +113,25 @@ var ConfirmDinnerView = function (container, model) {
 	totalPriceDiv.appendChild(priceHeading);
 	dishes.appendChild(totalPriceDiv);
 
+	// Print recipes button
+	var recipes = document.createElement('div');
+	recipes.setAttribute("class", "row");
+	var recipeCol = document.createElement('div');
+	recipeCol.setAttribute("class", "col s12 m6 l6 offset-m4 offset-l4");
+	var recipeLink = document.createElement('a');
+	recipeLink.setAttribute("class", "waves-effect waves-light btn-large");
+	var recipeIcon = document.createElement('i');
+	recipeIcon.setAttribute("class", "mdi-action-print right");
+	var recipeText = document.createTextNode("Print full recipe");
+	recipeLink.appendChild(recipeIcon);
+	recipeLink.appendChild(recipeText);
+	recipeCol.appendChild(recipeLink);
+	recipes.appendChild(recipeCol);
+
 	this.confirmDinner.html(dishes);
 	document.getElementById("confirmDinnerView").appendChild(topBar);
 	document.getElementById("confirmDinnerView").appendChild(dishes);
+	document.getElementById("confirmDinnerView").appendChild(recipes);
 }
 
 
