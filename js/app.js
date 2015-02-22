@@ -14,7 +14,7 @@ $(function() {
 	//And create the needed controllers and views
 	//var homeView = new HomeView($("#homeView"), model);
 	var totalMenuView = new TotalMenuView($("#totalMenuView"), model);
-	// var totalMenuController =  new TotalMenuController(totalMenuView, model);
+	var totalMenuController =  new TotalMenuController(totalMenuView, model);
 	// var pickDishView = new PickDishView($("#pickDishView"), model);
 	// var pickDishController =  new PickDishController(pickDishView, model);
 	var dishDetailView = new DishDetailView($("#dishDetail"), model);

@@ -37,7 +37,7 @@ var DishDetailView = function(container, model) {
     var price = 0;
     //create ingredients table 
     var yellowDiv = document.createElement('div')
-    yellowDiv.setAttribute("class", "col s12 m6 l6 amber lighten-3");
+    yellowDiv.setAttribute("class", "col s12 m7 l7 amber lighten-3");
     var heading = document.createElement('h3');
     heading.setAttribute("class", 'small-heading');
     var t = document.createTextNode('Ingredients for ' + guests + ' people');
@@ -69,7 +69,7 @@ var DishDetailView = function(container, model) {
         var td2t = document.createTextNode(dish.ingredients[x].name);
         td2.appendChild(td2t);
         var td3 = document.createElement('td');
-         td1.setAttribute("id", "ing-price-"+x);
+        td3.setAttribute("id", "ing-price-"+x);
         var td3t = document.createTextNode(dish.ingredients[x].price * guests + " SEK");
         td3.appendChild(td3t);
         row.appendChild(td1);
@@ -108,7 +108,8 @@ var DishDetailView = function(container, model) {
         //price for each ingredient
         for (var i = 0; i < dish.ingredients.length; i++) {
             var singleIngredientQuant = document.getElementById( "ing-quant-"+ i) ;
-            singleIngredientPrice.innerHTML = dish.ingredients[i].quantity * guests;
+            console.log(singleIngredientQuant);
+            singleIngredientQuant.innerHTML = dish.ingredients[i].quantity * guests;
             var singleIngredientPrice = document.getElementById( "ing-price-"+ i) ;
             singleIngredientPrice.innerHTML = dish.ingredients[i].price * guests;
 
