@@ -1,9 +1,10 @@
 var DishDetailController = function(view, model ) {
 //confirm button
-//don't know if it works?!
-//where do i get the id from?
-$("confirmDishButton").on('click', function() {
-   model.addDishToMenu(id);
+
+$("#confirmDishButton").click(function(){
+	var id = $(this).data("id");
+  	model.addDishToMenu(id);
+  	// THIS WORKS, BUT WE NEED TO REPRINT THE NEW MENU IN THE UPDATE IN TOTALMENUVIEW
 });
 
 

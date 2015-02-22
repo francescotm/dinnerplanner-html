@@ -5,7 +5,7 @@ var DishDetailView = function(container, model) {
     var id = 1;
  
     var guests = model.getNumberOfGuests();
-    this.dishDetail = container.find("#dishDetail");
+    this.dishDetail = container.find("#dishDetailView");
     var dish = model.getDish(id);
     // console.log(dish);
     var container = document.createElement('div');
@@ -82,6 +82,7 @@ var DishDetailView = function(container, model) {
 	var confirmButton = document.createElement('a');
 	confirmButton.setAttribute("class", "btn");
     confirmButton.setAttribute("id", "confirmDishButton");
+    confirmButton.setAttribute("data-id", id);
 	var confirmText = document.createTextNode("Add Dish");
 	confirmButton.appendChild(confirmText);
 
@@ -113,7 +114,6 @@ var DishDetailView = function(container, model) {
         //price for each ingredient
         for (var i = 0; i < dish.ingredients.length; i++) {
             var singleIngredientQuant = document.getElementById( "ing-quant-"+ i) ;
-            console.log(singleIngredientQuant);
             singleIngredientQuant.innerHTML = dish.ingredients[i].quantity * guests;
             var singleIngredientPrice = document.getElementById( "ing-price-"+ i) ;
             singleIngredientPrice.innerHTML = dish.ingredients[i].price * guests + " SEK";
@@ -137,5 +137,5 @@ var DishDetailView = function(container, model) {
     container.appendChild(containerDiv);
     container.appendChild(yellowDiv);
     
-    document.getElementById("dishDetail").appendChild(container);
+    document.getElementById("dishDetailView").appendChild(container);
 }

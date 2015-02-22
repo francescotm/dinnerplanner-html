@@ -194,7 +194,6 @@ this.addObserver = function(observer) {
 var notifyObservers = function(obj) {
 	for(var i = 0; i<observers.length; i++){
 		observers[i].update(obj);
-		console.log("i'm in notifyObservers");
 	}
 }
 
