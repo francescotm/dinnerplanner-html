@@ -2,10 +2,12 @@
 var DishDetailView = function(container, model) {
     // Get all the relevant elements of the view (ones that show data
     // and/or ones that responed to interaction)
-    var id = 1;
  
     var guests = model.getNumberOfGuests();
-    this.dishDetail = container.find("#dishDetailView");
+    var dishDetail = document.getElementById("dishDetailView");
+    console.log("dishDetail " + dishDetail);
+    var id = dishDetail.getAttribute("data-id");
+    console.log("dishDetail id " + id);
     var dish = model.getDish(id);
     // console.log(dish);
     var container = document.createElement('div');
@@ -122,7 +124,7 @@ var DishDetailView = function(container, model) {
             }
         //total price
             var totalPrice = document.getElementById("single-dish-total-price") ;
-            totalPrice.innerHTML = model.getDishPrice(id) + " SEK"; 
+            totalPrice.innerHTML = model.getDishPrice(dish.id) + " SEK"; 
         }
 
         //confirm dish 

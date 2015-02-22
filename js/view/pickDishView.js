@@ -32,7 +32,9 @@ var PickDishView = function (container, model) {
 			var dishLink = document.createElement('a');
 			var dishName = document.createTextNode(allDishes[i].name);
 			dishLink.appendChild(dishName);
-			dishLink.href = "#"
+			dishLink.href = "#";
+			dishLink.setAttribute("data-id", allDishes[i].id);
+			dishLink.setAttribute("class", "dish-detail-link");
 			cardContent.appendChild(dishLink);
 			var cardAction = document.createElement('div')
 			cardAction.setAttribute("class", "card-action");
