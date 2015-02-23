@@ -3,8 +3,9 @@ var PickDishController = function(view, model) {
 	$(document).on('click', '.dish-detail-link', function() {
   		$("#pickDish").addClass("hide");
   		var id = $(this).data("id");
-  		console.log("PickDishController id " + id);
-  		$("#dishDetailView").attr("data-id", id);
+  		model.setDishId(id);
+  		console.log("model dishId " + model.getDishId());
+  		//$("#dishDetailView").attr("data-id", model.getDishId());
   		$("#dishDetailView").removeClass("hide");
 	});
 }

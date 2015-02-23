@@ -2,15 +2,23 @@
 var DishDetailView = function(container, model) {
     // Get all the relevant elements of the view (ones that show data
     // and/or ones that responed to interaction)
- 
-    var guests = model.getNumberOfGuests();
-    var dishDetail = document.getElementById("dishDetailView");
-    console.log("dishDetail " + dishDetail);
-    var id = dishDetail.getAttribute("data-id");
-    console.log("dishDetail id " + id);
+    var id = model.getDishId();
+    console.log("dishDetailId in dishDetailView" + id);
     var dish = model.getDish(id);
-    // console.log(dish);
+    console.log("dish in dishDetailView " + dish);
+
     var container = document.createElement('div');
+
+
+ var printDish = function(id) {
+    var guests = model.getNumberOfGuests();
+    //var dishDetail = document.getElementById("dishDetailView");
+    //console.log("dishDetail " + dishDetail);
+    
+    // console.log(dish);
+
+    container.innerHTML = "";
+    
     //create detail view 
     var containerDiv = document.createElement('div')
     containerDiv.setAttribute("class", "col s12 m5 l5");
@@ -108,39 +116,48 @@ var DishDetailView = function(container, model) {
     tbody.appendChild(confirmButton);
 
 
-//implement observer 
-    model.addObserver(this);
-
-    this.update = function(obj){
-        if (obj == "setNumberOfGuests") {
-            guests = model.getNumberOfGuests();
-            // Heading with the number of guests
-            heading.innerHTML =  "Ingredients for " + model.getNumberOfGuests() + " people";
-            //price for each ingredient
-            for (var i = 0; i < dish.ingredients.length; i++) {
-                var singleIngredientQuant = document.getElementById( "ing-quant-"+ i) ;
-                singleIngredientQuant.innerHTML = dish.ingredients[i].quantity * guests;
-                var singleIngredientPrice = document.getElementById( "ing-price-"+ i) ;
-                singleIngredientPrice.innerHTML = dish.ingredients[i].price * guests + " SEK";
-            }
-        //total price
-            var totalPrice = document.getElementById("single-dish-total-price") ;
-            totalPrice.innerHTML = model.getDishPrice(dish.id) + " SEK"; 
-        }
-
-        //confirm dish 
-        
-        //back to pick dish        
-    };
-
-
-
     table.appendChild(thead);
     table.appendChild(tbody);
     yellowDiv.appendChild(heading);
     yellowDiv.appendChild(table);
     container.appendChild(containerDiv);
     container.appendChild(yellowDiv);
+}    
+
+
+
+//printDish();
+//implement observer 
+    model.addObserver(this);
+
+    this.update = function(obj){
+        if (obj == "setNumberOfGuests") {
+            guests = model.getNumberOfGuests();
+            printDish(id);
+            // Heading with the number of guests
+            // heading.innerHTML =  "Ingredients for " + model.getNumberOfGuests() + " people";
+            // //price for each ingredient
+            // for (var i = 0; i < dish.ingredients.length; i++) {
+            //     var singleIngredientQuant = document.getElementById( "ing-quant-"+ i) ;
+            //     singleIngredientQuant.innerHTML = dish.ingredients[i].quantity * guests;
+            //     var singleIngredientPrice = document.getElementById( "ing-price-"+ i) ;
+            //     singleIngredientPrice.innerHTML = dish.ingredients[i].price * guests + " SEK";
+            // }
+        //total price
+            var totalPrice = document.getElementById("single-dish-total-price") ;
+            totalPrice.innerHTML = model.getDishPrice(dish.id) + " SEK"; 
+        } else if (obj == "dishId") {
+            id = model.getDishId();
+            printDish(id);
+            console.log("im in dishDetailView update with dishID");
+        }
+
+        //confirm dish 
+        
+        //back to pick dish        
+    };
     
+
     document.getElementById("dishDetailView").appendChild(container);
+    
 }

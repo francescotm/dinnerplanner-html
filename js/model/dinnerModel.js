@@ -6,6 +6,16 @@ var DinnerModel = function() {
 
 	var numberOfGuests = 2;
 	var fullMenu = [];
+	var dishDetailId = 1;
+
+	this.getDishId = function() {
+		return dishDetailId;
+	}
+
+	this.setDishId = function (id) {
+		dishDetailId = id;
+		notifyObservers("dishId");
+	}
 
 
 	// set the number of guests by taking a parameter

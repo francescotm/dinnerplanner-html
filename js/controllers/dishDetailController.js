@@ -1,20 +1,19 @@
 var DishDetailController = function(view, model ) {
 //confirm button
-
-$("#confirmDishButton").click(function(){
+$(document).on('click', '#confirmDishButton', function() {
 	var id = $(this).data("id");
   	model.addDishToMenu(id);
+  	console.log("addind dish " + id);
   	$(this).addClass("disabled");
   	$(this).prop("disabled",true);
 });
 
-$(".confirmDinnerButton").click(function(){
+$(document).on('click', '.confirmDinnerButton', function() {
 	$("#totalMenuView").addClass("hide");
 	$("#dishDetailView").addClass("hide");
 	$("#confirmDinnerView").removeClass("hide");
 });
-
-$("#backPickDish").click(function(){
+$(document).on('click', '#backPickDish', function() {
 	$("#dishDetailView").addClass("hide");
 	$("#pickDish").removeClass("hide");
 });
