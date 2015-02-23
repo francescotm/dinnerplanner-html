@@ -140,6 +140,7 @@ var ConfirmDinnerView = function (container, model) {
 	recipeCol.setAttribute("class", "col s12 m6 l6 offset-m4 offset-l4");
 	var recipeLink = document.createElement('a');
 	recipeLink.setAttribute("class", "waves-effect waves-light btn-large");
+	recipeLink.setAttribute("id", "printRecipe");
 	var recipeIcon = document.createElement('i');
 	recipeIcon.setAttribute("class", "mdi-action-print right");
 	var recipeText = document.createTextNode("Print full recipe");

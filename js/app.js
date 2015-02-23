@@ -21,6 +21,7 @@ $(function() {
 	var dishDetailView = new DishDetailView($("#dishDetail"), model);
 	var dishDetailController =  new DishDetailController(dishDetailView, model);
 	var confirmDinnerView = new ConfirmDinnerView($("#confirmDinnerView"), model);
+	var confirmDinnerController =  new ConfirmDinnerController(confirmDinnerView, model);
 	var recipeView = new RecipeView($("#recipeView"), model);
 });
 
