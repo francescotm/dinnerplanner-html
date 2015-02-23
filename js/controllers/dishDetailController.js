@@ -10,6 +10,7 @@ $(document).on('click', '#confirmDishButton', function() {
 
 $(document).on('click', '.confirmDinnerButton', function() {
 	$("#totalMenuView").addClass("hide");
+	$("#pickDish").addClass("hide");
 	$("#dishDetailView").addClass("hide");
 	$("#confirmDinnerView").removeClass("hide");
 });

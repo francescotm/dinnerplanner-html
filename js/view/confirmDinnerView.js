@@ -36,6 +36,7 @@ var ConfirmDinnerView = function (container, model) {
 	var buttonContainer = document.createElement('p');
 	var buttonLink = document.createElement('a');
 	buttonLink.setAttribute("class", "waves-effect waves-light btn");
+	buttonLink.setAttribute("id", "goBackPickDish");
 	var buttonIcon = document.createElement('i');
 	buttonIcon.setAttribute("class", "mdi-navigation-arrow-back left");
 	var buttonText = document.createTextNode("Go back and edit dinner");
