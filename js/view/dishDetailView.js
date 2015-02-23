@@ -8,6 +8,7 @@ var DishDetailView = function(container, model) {
     console.log("dish in dishDetailView " + dish);
 
     var container = document.createElement('div');
+    container.setAttribute("id", "container-to-empty");
 
 
  var printDish = function(id) {
@@ -16,9 +17,9 @@ var DishDetailView = function(container, model) {
     //console.log("dishDetail " + dishDetail);
     
     // console.log(dish);
-
     container.innerHTML = "";
-    
+    console.log("this is the container in printdish() " +container);
+    var dish = model.getDish(id);
     //create detail view 
     var containerDiv = document.createElement('div')
     containerDiv.setAttribute("class", "col s12 m5 l5");
@@ -122,6 +123,7 @@ var DishDetailView = function(container, model) {
     yellowDiv.appendChild(table);
     container.appendChild(containerDiv);
     container.appendChild(yellowDiv);
+    document.getElementById("dishDetailView").appendChild(container);
 }    
 
 
@@ -158,6 +160,6 @@ var DishDetailView = function(container, model) {
     };
     
 
-    document.getElementById("dishDetailView").appendChild(container);
+    
     
 }
