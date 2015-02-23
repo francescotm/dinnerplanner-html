@@ -183,7 +183,7 @@ var DinnerModel = function() {
 	this.removeDishFromMenu = function(id) {
 		for(dish in fullMenu) {
 			if(fullMenu[dish].id == id){
-				fullMenu.splice(dish, 2);
+				fullMenu.splice(dish, 1);
 				console.log("notify remove dish " + id);
 				notifyObservers("removeDishFromMenu");
 			}	
