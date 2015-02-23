@@ -23,6 +23,7 @@ $(function() {
 	var confirmDinnerView = new ConfirmDinnerView($("#confirmDinnerView"), model);
 	var confirmDinnerController =  new ConfirmDinnerController(confirmDinnerView, model);
 	var recipeView = new RecipeView($("#recipeView"), model);
+	var recipeController =  new RecipeController(recipeView, model);
 });
 
 

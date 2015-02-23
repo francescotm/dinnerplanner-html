@@ -35,6 +35,7 @@ var RecipeView = function (container, model) {
 	var buttonContainer = document.createElement('p');
 	var buttonLink = document.createElement('a');
 	buttonLink.setAttribute("class", "waves-effect waves-light btn");
+	buttonLink.setAttribute("id", "goBackFromRecipe");
 	var buttonIcon = document.createElement('i');
 	buttonIcon.setAttribute("class", "mdi-navigation-arrow-back left");
 	var buttonText = document.createTextNode("Go back and edit dinner");
@@ -46,10 +47,15 @@ var RecipeView = function (container, model) {
 	topBar.appendChild(dinnerLeft);
 	topBar.appendChild(dinnerRight);
 
+
 	// dishes
 	var dishes = document.createElement('div');
 	dishes.setAttribute("class", "row");
 	dishes.setAttribute("id", "dishes");
+
+var printDishes = function(menu){
+
+	dishes.innerHTML = "";
 
 	for (var i = 0; i < menu.length; i++) {
 
@@ -111,6 +117,21 @@ var RecipeView = function (container, model) {
 		containerDiv.appendChild(recipeDiv);
 		dishes.appendChild(containerDiv);
 	}
+}//end printDishes
+	//implement observer 
+    model.addObserver(this);
+    this.update = function(obj){
+    	if (obj == "addDishToMenu" || "removeDishFromMenu") {
+    		var menu = model.getFullMenu();
+			printDishes(menu);
+
+    	}  else if (obj == "setNumberOfGuests"){
+    		var guests = model.getNumberOfGuests();
+    		dinnerHeading.innerHTML = "My Dinner: " + guests + " people";
+
+    	}
+    };
+
 
 	this.recipe.html(dishes);
 	document.getElementById("recipeView").appendChild(topBar);
