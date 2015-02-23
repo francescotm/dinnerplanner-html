@@ -47,71 +47,90 @@ var ConfirmDinnerView = function (container, model) {
 	topBar.appendChild(dinnerLeft);
 	topBar.appendChild(dinnerRight);
 
+	//implement observer 
+    model.addObserver(this);
+
+    this.update = function(obj){
+    	if (obj == "addDishToMenu" || "setNumberOfGuests") {
+    		var menu = model.getFullMenu();
+			var totalPrice = model.getTotalMenuPrice();
+			var guests = model.getNumberOfGuests();
+    		printDishes(menu, guests, totalPrice);
+    		dinnerHeading.innerHTML = "My Dinner: " + guests + " people";
+
+    	}  
+    };
+
 	// dishes div
 	var dishes = document.createElement('div');
 	dishes.setAttribute("class", "row");
 	dishes.setAttribute("id", "dishes");
 
-	for (var i = 0; i < menu.length; i++) {
+	var printDishes = function(menu, guests, totalPrice) {
+		dishes.innerHTML = "";
+		for (var i = 0; i < menu.length; i++) {
 
-		// responsive column
-		var containerDiv = document.createElement('div')
-		containerDiv.setAttribute("class", "col s12 m4 l3");
-		
-		// card div
-		var cardDiv = document.createElement('div')
-		cardDiv.setAttribute("class", "card");
-		var cardImage = document.createElement('div')
-		
-		// image 
-		cardImage.setAttribute("class", "card-image");
-		var image = document.createElement('img');
-		image.setAttribute("class", "responsive-img");
-		image.setAttribute("src", "images/" + menu[i].image);
-		cardImage.appendChild(image);
-		
-		// card-content div
-		var cardContent = document.createElement('div')
-		cardContent.setAttribute("class", "card-content");
-		
-		// dish name
-		var dishLink = document.createElement('a');
-		var dishName = document.createTextNode(menu[i].name);
-		dishLink.appendChild(dishName);
-		
-		// dish link
-		dishLink.href = "#";
-		cardContent.appendChild(dishLink);
-		var cardAction = document.createElement('div');
-		
-		// card-action div
-		cardAction.setAttribute("class", "card-action");
-		
-		// dish price
-		var p = document.createElement('p');
-		var price = model.getDishPrice(menu[i].id);
-		var dishPrice = document.createTextNode(price + " SEK");
-		p.appendChild(dishPrice);
-		cardAction.appendChild(p);
-		
-		// append everything in containerDiv
-		cardDiv.appendChild(cardImage);
-		cardDiv.appendChild(cardContent);
-		cardDiv.appendChild(cardAction);
-		containerDiv.appendChild(cardDiv);
+			// responsive column
+			var containerDiv = document.createElement('div')
+			containerDiv.setAttribute("class", "col s12 m4 l3");
+			
+			// card div
+			var cardDiv = document.createElement('div')
+			cardDiv.setAttribute("class", "card");
+			var cardImage = document.createElement('div')
+			
+			// image 
+			cardImage.setAttribute("class", "card-image");
+			var image = document.createElement('img');
+			image.setAttribute("class", "responsive-img");
+			image.setAttribute("src", "images/" + menu[i].image);
+			cardImage.appendChild(image);
+			
+			// card-content div
+			var cardContent = document.createElement('div')
+			cardContent.setAttribute("class", "card-content");
+			
+			// dish name
+			var dishLink = document.createElement('a');
+			var dishName = document.createTextNode(menu[i].name);
+			dishLink.appendChild(dishName);
+			
+			// dish link
+			dishLink.href = "#";
+			cardContent.appendChild(dishLink);
+			var cardAction = document.createElement('div');
+			
+			// card-action div
+			cardAction.setAttribute("class", "card-action");
+			
+			// dish price
+			var p = document.createElement('p');
+			var price = model.getDishPrice(menu[i].id);
+			var dishPrice = document.createTextNode(price + " SEK");
+			p.appendChild(dishPrice);
+			cardAction.appendChild(p);
+			
+			// append everything in containerDiv
+			cardDiv.appendChild(cardImage);
+			cardDiv.appendChild(cardContent);
+			cardDiv.appendChild(cardAction);
+			containerDiv.appendChild(cardDiv);
 
-		dishes.appendChild(containerDiv);
+			dishes.appendChild(containerDiv);
+		}
+			// Total price
+			var totalPrice = model.getTotalMenuPrice();
+			var totalPriceDiv = document.createElement('div');
+			totalPriceDiv.setAttribute("class", "col s12 m4 l3");
+			var priceHeading = document.createElement('h3');
+			priceHeading.setAttribute("class", "small-heading");
+			var priceText = document.createTextNode("Total: " + totalPrice + " SEK");
+			priceHeading.appendChild(priceText);
+			totalPriceDiv.appendChild(priceHeading);
+			dishes.appendChild(totalPriceDiv);
 	}
 	
-	// Total price
-	var totalPriceDiv = document.createElement('div');
-	totalPriceDiv.setAttribute("class", "col s12 m4 l3");
-	var priceHeading = document.createElement('h3');
-	priceHeading.setAttribute("class", "small-heading");
-	var priceText = document.createTextNode("Total: " + totalPrice + " SEK");
-	priceHeading.appendChild(priceText);
-	totalPriceDiv.appendChild(priceHeading);
-	dishes.appendChild(totalPriceDiv);
+
 
 	// Print recipes button
 	var recipes = document.createElement('div');
