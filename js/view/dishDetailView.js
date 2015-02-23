@@ -27,6 +27,7 @@ var DishDetailView = function(container, model) {
     p.appendChild(desc);
     var a = document.createElement('a');
     a.setAttribute('class', 'waves-effect waves-light btn');
+    a.setAttribute("id", "backPickDish");
     var i = document.createElement("i");
     i.setAttribute('class', 'mdi-navigation-arrow-back left');
     var buttonText = document.createTextNode("Back to select dish");
