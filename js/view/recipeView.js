@@ -124,9 +124,13 @@ var printDishes = function(menu){
     	if (obj == "addDishToMenu" || "removeDishFromMenu") {
     		var menu = model.getFullMenu();
 			printDishes(menu);
+			var guests = model.getNumberOfGuests();
+    		console.log("guests in update recipeView " + guests);
+    		dinnerHeading.innerHTML = "My Dinner: " + guests + " people";
 
     	}  else if (obj == "setNumberOfGuests"){
     		var guests = model.getNumberOfGuests();
+    		console.log("guests in update recipeView " + guests);
     		dinnerHeading.innerHTML = "My Dinner: " + guests + " people";
 
     	}
