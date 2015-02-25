@@ -163,7 +163,11 @@ var TotalMenuView = function (container, model) {
 			}
 			console.log("total price now " + model.getTotalMenuPrice());
 			console.log("menu now " + model.getFullMenu());
-			totalCost = document.getElementById("dish-total-price");	
+			totalCost = document.getElementById("dish-total-price");
+			
+			// search only inside the container to avoid that you get an element with the same id
+			container.find("#dish-total-price");
+
 			totalCost.innerHTML = model.getTotalMenuPrice();
 			
 		} else if (obj == "addDishToMenu" || "removeDishFromMenu") {

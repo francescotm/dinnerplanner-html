@@ -157,12 +157,12 @@ var DinnerModel = function() {
 			console.log("menu fulll");
 			for(key in fullMenu) {
 				if(dish.type == fullMenu[key].type){
-					this.removeDishFromMenu(fullMenu[key].id)
-					return fullMenu.push(dish);
+					removeDishFromMenu(fullMenu[key].id)
+					fullMenu.push(dish);
 					notifyObservers("addDishToMenu");
 					console.log("add dish same id, notified update");
 				} else {
-					return fullMenu.push(dish);
+					fullMenu.push(dish);
 					notifyObservers("addDishToMenu");
 					console.log("add dish, notified");
 				}	
